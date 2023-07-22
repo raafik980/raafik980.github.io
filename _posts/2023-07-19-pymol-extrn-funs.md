@@ -24,7 +24,7 @@ OR
 
 - To render the trajectory, use the following command:
 
-```bash
+```console
 PyMOL> cd /your/path/to/cloned/repo
 PyMOL> load traj.psf
 PyMOL> load traj.dcd
@@ -33,7 +33,7 @@ PyMOL> load traj.dcd
 
 - Configuring Mouse > Selection Mode options lets you select atoms, residues, segments, etc. The particular atom selected will get displayed in the PyMOL console. An example is:
     
-```bash
+```console
  Selector: selection "sele" defined with 7 atoms.
  You clicked /traj/PROA/P/THR`155/CA
 ```
@@ -54,7 +54,7 @@ A convenient way to deal with external libraries which will be used in Python fu
 
 The example files for these analyses can be found in this [GitHub repository](https://github.com/raafik980/charmm-md-analysis-in-pymol.git). The functions are written as .py files which can be called through the in-built Python interpreter in PyMOL. The following command can be used to call the functions after loading the trajectory as mentioned in the previous section:
 
-```bash
+```console
 PyMOL> cd /your/path/to/cloned/repo
 PyMOL> run your_func.py
 ```
@@ -63,7 +63,7 @@ PyMOL> run your_func.py
 
 A simple quick analysis to check the distance between two atoms in a trajectory. The function takes the following arguments and usage with respect to our example is as follows (**num_process** option is to parallelize within available CPUs):
 
-```bash
+```console
 ##USAGE: dist_vs_frame('object_name', 'atom1', 'atom2', num_process=1)
 
 PyMOL> dist_vs_frame('traj', '/traj/PROA/P/PRO`128/CA', '/traj/PROA/P/LYS`40/CA', num_process=1)
@@ -82,7 +82,7 @@ angle = pymol.cmd.get_angle('selection1', 'selection2', 'selection3')
 The function takes the following arguments and usage with respect to our example as follows (the **num_process** option is to parallelize within available CPUs and the **stride** option is to skip frames):
 
 
-```bash
+```console
 ##USAGE: RMSD_vs_frame('object_name', stride=5, num_process=4)
 
 PyMOL> RMSD_vs_frame('traj', stride=5, num_process=1)
@@ -91,7 +91,7 @@ PyMOL> RMSD_vs_frame('traj', stride=5, num_process=1)
 
 The function takes the following arguments and usage with respect to our example is as follows (**num_process** option is to parallelize within available CPUs):
 
-```bash
+```console
 ##USAGE: angle_vs_dist_distribution('object_name','atom1_angle', 'atom2_angle', 'atom3_angle', 'atom1_distance', 'atom2_distance', num_processes=2)
 
 PyMOL> angle_vs_dist_distribution('traj','/traj/PROA/P/VAL`148/CA', '/traj/PROA/P/LEU`82/CA', '/traj/PROA/P/SER`43/CA', '/traj/PROA/P/PRO`128/CA', '/traj/PROA/P/ARG`36/CA', num_processes=4)
@@ -101,7 +101,7 @@ PyMOL> angle_vs_dist_distribution('traj','/traj/PROA/P/VAL`148/CA', '/traj/PROA/
 
 PyMOL has an in-built function to calculate the center of mass of a selection. With the center of mass feature along with selection tools, we will be able to make distribution plots with respect to certain domain motions of the structure. The function takes the following arguments and usage with respect to our example is as follows (**num_process** option is to parallelize within available CPUs):
 
-```bash
+```console
 ##USAGE: cmass_dist_distribution('object_name', 'core_selection', 'domain1_selection', 'domain2_selection', num_processes=2 )
 
 PyMOL> cmass_dist_distribution( ' traj ', '  ( /traj/PROA/P ) and ( name  N+CA+C+O ) and  ( resi 3-23 or resi 81-85 or resi 109-115  ) ',  ' (  /traj/PROA/P ) and ( name N+CA+C+O )  and  ( resi 129-159  ) ', ' ( /traj/PROA/P ) and ( name  N+CA+C+O )  and  ( resi 33-55  )' , num_processes=4)

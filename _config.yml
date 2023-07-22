@@ -18,36 +18,38 @@ timezone:
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # ↓ --------------------------
 
-title: Chirpy # the main title
+title: I am Abdul Raafik. A. T  # the main title
 
-tagline: A text-focused Jekyll theme # it will display as the sub-title
+tagline: " 
+“Thermodynamics is a funny subject. The first time you go through it, you don't understand it at all. The second time you go through it, you think you understand it, except for one or two points. The third time you go through it, you know you don't understand it, but by that time you are used to the bewilderment....”
+ ―――――Arnold Sommerfeld "  # it will display as the sub-title
 
 description: >- # used by seo meta and the atom feed
-  A minimal, responsive and feature-rich Jekyll theme for technical writing.
+   Computational Chemistry, Machine Learning, Multi-scale Modeling, Molecular Dynamics, CHARMM GUI
 
 # fill in the protocol & hostname for your site, e.g., 'https://username.github.io'
-url: ""
+url: "https://raafik980.github.io"
 
 github:
-  username: github_username # change to your github username
+  username: raafik980 # change to your github username
 
 twitter:
-  username: twitter_username # change to your twitter username
+  username: abdul-raafik-a-t-03a35b197 # change to your twitter username
 
 social:
   # Change to your full name.
   # It will be displayed as the default author of the posts and the copyright owner in the Footer
-  name: your_full_name
-  email: example@domain.com # change to your email address
+  name: Abdul Raafik Arattu Thodika
+  email: axa5186@mavs.uta.edu # change to your email address
   links:
     # The first element serves as the copyright owner's link
-    - https://twitter.com/username # change to your twitter homepage
-    - https://github.com/username # change to your github homepage
+    # - https://twitter.com/username # change to your twitter homepage
+    - https://github.com/raafik980 # change to your github homepage
     # Uncomment below to add more social links
     # - https://www.facebook.com/username
-    # - https://www.linkedin.com/in/username
+    - https://www.linkedin.com/in/abdul-raafik-a-t-03a35b197
 
-google_site_verification: # fill in to your verification string
+google_site_verification: QU5XgJVv_A9ErbiLMcZH__F54n6_ISDZxVTlXYYckRY # fill in to your verification string
 
 # ↑ --------------------------
 # The end of `jekyll-seo-tag` settings

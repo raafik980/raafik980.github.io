@@ -1,5 +1,5 @@
 ---
-title: PyMOL and Custom External Python Functions
+title: PyMOL-Python External Functions for CHARMM MD Trajectory Analysis 
 author:
 date: 2023-07-19 
 categories: [Software, PyMOL]
@@ -9,7 +9,7 @@ pin: false
 toc: true
 ---
 
-This post is about how to do some quick analyses directly from pre-rendered CHARMM molecular dynamics trajectories in PyMOL using custom external Python functions and PyMOL selection algebra. For more extended information about PyMOL's capabilities, pymolwiki.org is a great resource.
+This post is about how to do some quick analyses directly from pre-rendered CHARMM molecular dynamics trajectories in PyMOL using custom external Python functions and PyMOL selection algebra. For more extended information about PyMOL's capabilities, [pymolwiki.org](https://pymolwiki.org/index.php/Launching_From_a_Script) is a great resource.
 
 ## Introduction
 PyMOL is a powerful molecular visualization tool that is widely used in the computational chemistry community. It is also a great tool for creating high-quality figures for publications. PyMOL's capability to read CHARMM dcd trajectories and render them in a variety of ways makes it a great tool for visualizing MD simulations. PyMOL being a Python library and having a Python interpreter built-in, it is also possible to write custom functions to perform specific tasks as well as readily test possible analyses based on visual inspection of MD trajectories. In this post, I will be discussing how to read and render CHARMM trajectories in PyMOL and some custom functions to perform specific tasks directly in PyMOL and plot the results. The example files are available in this [GitHub repository](https://github.com/raafik980/charmm-md-analysis-in-pymol.git)

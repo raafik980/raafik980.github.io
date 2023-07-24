@@ -1,5 +1,5 @@
 ---
-title: ABOUT ME AND THE PAGE
+title: About Me and This Page
 author:
 date: 2023-07-19 
 categories: [Introduction, About]

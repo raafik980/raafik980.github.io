@@ -83,9 +83,9 @@ The function takes the following arguments and usage with respect to our example
 
 
 ```console
-##USAGE: RMSD_vs_frame('object_name', stride=5, num_process=4)
+##USAGE: RMSD_vs_frame('protein selection', stride=5, num_process=4)
 
-PyMOL> RMSD_vs_frame('traj', stride=5, num_process=1)
+PyMOL> RMSD_vs_frame('/traj/PROA/P', stride=5, num_process=1)
 ```
 ### 3. Angle vs. Distance Distribution
 

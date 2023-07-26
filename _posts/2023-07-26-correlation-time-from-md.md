@@ -13,7 +13,7 @@ math: true
 This article briefly discusses the theory behind calculating correlation time and error from molecular dynamics (MD) simulation trajectories. This article mainly refers to the following sources:
 1. [Principles of Modern Molecular Simulation Methods Course](https://sites.engineering.ucsb.edu/~shell/che210d/) materials from Professor M. Scott Shell at UC Santa Barbara
 
-## Average Properties from MD Trajectories
+# Average Properties from MD Trajectories
 
 For any observable variable $A$ (an example: coordinates) for which we want to compute average values from MD trajectories, the average value is given by:
 
@@ -46,7 +46,7 @@ $$
 As the simulation time increases (or at the limit of ${t_{tot} \to \infty}$), the variance associated with the real ensemble average should approach zero. Another important feature of such ensemble averages is that they are time-independent. This means that the ensemble average of the variable $A$ at a time $\tau$ is the same as the ensemble average of the variable $A$ at time $\tau + t$. However, this is not the case for the average values computed from MD trajectories. A time autocorrelation function can be defined to quantify the correlation between the variable $A$ at time $\tau$ and $\tau + t$.
 
 
-## Time Auto-correlation Function for the Variable $A$
+# Time Auto-correlation Function for the Variable $A$
 
 The time autocorrelation function for the variable $A$ is defined as:
 
@@ -60,7 +60,7 @@ Schematically, the time autocorrelation function can be represented as the figur
 
 ![Time autocorrelation function](/assets/2023-07-26/correl-fun-scheme.png)
 
-## Auto-correlation Time for the Variable $A$
+# Auto-correlation Time for the Variable $A$
 
 The correlation time for the variable $A$ is defined as:
 
@@ -71,7 +71,7 @@ $$
 
 The correlation time is a measure of the time it takes for the variable $A$ to decorrelate. The correlation time can be used to compute the error associated with the average value of the variable $A$ computed from MD trajectories.
 
-## Remarks
+# Remarks
 
 As mentioned above, these correlation functions and their Fourier transforms, the spectral densities, can be obtained from MD trajectories. This could provide a way to study the dynamics associated with these molecules. One particular example will be probing spherical polar coordinates of the **N-H** bond vector in a protein backbone (values of variable $A$ from MD trajectory frames). In this case of dipolar relaxation, the NMR relaxation parameters can be obtained from the spectral densities. The spectral densities. A future post will discuss more information about obtaining NMR relaxation parameters from MD trajectories and some CHARMM script examples.
 

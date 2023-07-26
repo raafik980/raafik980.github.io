@@ -7,6 +7,7 @@ tags: [mdanalysis, molecular dynamics, average properties, correlation time ]
 render_with_liquid: true
 pin: false
 toc: true
+math: true
 ---
 
 This article briefly discusses the theory behind calculating correlation time and error from molecular dynamics (MD) simulation trajectories. This article mainly refers to the following sources:
@@ -72,7 +73,7 @@ The correlation time is a measure of the time it takes for the variable $A$ to d
 
 ## Remarks
 
-As mentioned above, these correlation functions and their Fourier transforms, the spectral densities, can be obtained from MD trajectories. This could provide a way to study the dynamics associated with these molecules. One particular example will be probing spherical polar coordinates of the **N-H** bond vector in a protein backbone (values of variable $A$ from MD trajectory frames). In this case of dipolar relaxation, the NMR relaxation parameters can be obtained from the spectral densities. The spectral densities.
+As mentioned above, these correlation functions and their Fourier transforms, the spectral densities, can be obtained from MD trajectories. This could provide a way to study the dynamics associated with these molecules. One particular example will be probing spherical polar coordinates of the **N-H** bond vector in a protein backbone (values of variable $A$ from MD trajectory frames). In this case of dipolar relaxation, the NMR relaxation parameters can be obtained from the spectral densities. The spectral densities. A future post will discuss more information about obtaining NMR relaxation parameters from MD trajectories and some CHARMM script examples.
 
 
 

@@ -15,7 +15,7 @@ This article briefly discusses the theory behind calculating correlation time an
 
 # Average Properties from MD Trajectories
 
-For any observable variable $A$ (an example: coordinates) for which we want to compute average values from MD trajectories, the average value is given by:
+Consider an observable variable $A$ (an example: coordinates) from MD trajectory for which we want to compute average values. The average value is given by:
 
 $$
 \overline{A} = \frac{1}{n} \sum_{i=1}^{n} A_i
@@ -29,7 +29,7 @@ $$
 \overline{A}  = \frac{1}{t_{tot}} \int_{0}^{t_{tot}} A(t) dt
 $$
 
-where $t$ is the total simulation time and $A(t)$ is the value of the property $A$ at time $t$. The $t_{tot}$ is the total simulation time.
+where $t$ is a given time and $A(t)$ is the value of the property $A$ at time $t$. The $t_{tot}$ is the total simulation time.
 
 The scenario mentioned above could introduce errors to the evaluated average for the variable compared to the real scenario. This is simply because the simulation time is not long enough, or the simulation is not in equilibrium. In an ideal situation, the real average value of the variable $A$ is given by (following ergodic hypothesis):
 
@@ -43,7 +43,7 @@ $$
 \sigma_{\overline{A}}^2 = \langle(\overline{A} - \langle{A}\rangle)^2 \rangle
 $$
 
-As the simulation time increases (or at the limit of ${t_{tot} \to \infty}$), the variance associated with the real ensemble average should approach zero. Another important feature of such ensemble averages is that they are time-independent. This means that the ensemble average of the variable $A$ at a time $\tau$ is the same as the ensemble average of the variable $A$ at time $\tau + t$. However, this is not the case for the average values computed from MD trajectories. A time autocorrelation function can be defined to quantify the correlation between the variable $A$ at time $\tau$ and $\tau + t$.
+As the simulation time increases (or at the limit of ${t_{tot} \to \infty}$), the variance associated with the real ensemble average should approach zero. Another important feature of such ensemble averages is that they are time-independent. This means that the ensemble average of the variable $A$ at a time $\tau$ is the same as the ensemble average of the variable $A$ at time $\tau + t$. However, this is not the case for the average values computed from MD trajectories. Within that context, a **time autocorrelation function** can be defined to quantify the correlation between the variable $A$ at time $\tau$ and $\tau + t$.
 
 
 # Time Auto-correlation Function for the Variable $A$
@@ -54,15 +54,15 @@ $$
 C_A(t) = \frac{\langle A(t+\tau) A(\tau) \rangle - \langle A(\tau) \rangle^2}{\langle A(\tau)^2 \rangle - \langle A(\tau) \rangle^2}
 $$
 
-The time autocorrelation function is a measure of the correlation between the variable $A$ at time $\tau$ and $\tau + t$.  As per this definition, time autocorrelation function is normalized to 1 at $t=0$ and as the simulation time increases (or the limit of ${t_{tot} \to \infty}$), the time autocorrelation function should approach zero. The time autocorrelation function can be used to compute the correlation time for the variable $A$.
+The time autocorrelation function is a measure of the correlation between the variable $A$ at time $\tau$ and $\tau + t$.  As per this definition, time autocorrelation function is normalized to 1 at $t=\tau$ and as the simulation time increases (or the limit of ${t_{tot} \to \infty}$), the time autocorrelation function should approach zero. 
 
-Schematically, the time autocorrelation function can be represented as the figure below with xaxis running from $\tau$ to $\infty$ and yaxis running from 0 to 1.
+Schematically, the time autocorrelation function can be represented as the figure below with xaxis running from $\tau$ to $\infty$ and yaxis running from 0 to 1:
 
 ![Time autocorrelation function](/assets/2023-07-26/correl-fun-scheme.png)
 
 # Auto-correlation Time for the Variable $A$
 
-The correlation time for the variable $A$ is defined as:
+The time autocorrelation function can be used to compute the correlation time for the variable $A$. The correlation time for the variable $A$ is defined as:
 
 $$
 \tau_A = \int_{0}^{\infty} C_A(t+\tau) dt

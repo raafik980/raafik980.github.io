@@ -54,9 +54,9 @@ $$
 C_A(t) = \frac{\langle A(t+\tau) A(\tau) \rangle - \langle A(\tau) \rangle^2}{\langle A(\tau)^2 \rangle - \langle A(\tau) \rangle^2}
 $$
 
-The time autocorrelation function is a measure of the correlation between the variable $A$ at time $\tau$ and $\tau + t$.  As per this definition, time autocorrelation function is normalized to 1 at $t=0$ and as the simulation time increases (or the limit of ${t_{tot} \to \infty}$), the time autocorrelation function should approach zero. 
+The time autocorrelation function is a measure of the correlation between the variable $A$ at time $\tau$ and $\tau + t$.  As per this definition, the time autocorrelation function is normalized to 1 at $t=0$, and as the simulation time increases (or the limit of ${t_{tot} \to \infty}$), the time autocorrelation function should approach zero. 
 
-Schematically, the time autocorrelation function can be represented as the figure below with x-axis running from $\tau$ to $\infty$ and y-axis running from 0 to 1:
+Schematically, the time autocorrelation function can be represented as the figure below, with the x-axis running from $\tau$ to $\infty$ and the y-axis running from 0 to 1:
 
 ![Time autocorrelation function](/assets/2023-07-26/correl-fun-scheme.png)
 

@@ -27,7 +27,7 @@ The NMR module in CHARMM is a powerful tool for calculating NMR parameters from 
 
 ## NMR Analysis in pyCHARMM 
 
-Recently, Joshua Buckner et al. from the Brooks group developed a Python interface to CHARMM called [pyCHARMM](https://doi.org/10.1021/acs.jctc.3c00364)](https://doi.org/10.1021/acs.jctc.3c00364). This allows users to run CHARMM functionality from Python scripts. Currently, pyCHARMM is available along with the [CHARMM program](https://academiccharmm.org/program) installation and can be easily imported into Python scripts. The installation instructions can be found [here](https://github.com/BrooksResearchGroup-UM/MSLD-Workshop/tree/main/0Install_Tools).
+Recently, Joshua Buckner et al. from the Brooks group developed a Python interface to CHARMM called [pyCHARMM](https://doi.org/10.1021/acs.jctc.3c00364). This allows users to run CHARMM functionality from Python scripts. Currently, pyCHARMM is available along with the [CHARMM program](https://academiccharmm.org/program) installation and can be easily imported into Python scripts. The installation instructions can be found [here](https://github.com/BrooksResearchGroup-UM/MSLD-Workshop/tree/main/0Install_Tools).
 
 ```python
 

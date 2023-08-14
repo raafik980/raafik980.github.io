@@ -10,7 +10,7 @@ toc: true
 math: true
 ---
 
-This article discusses how molecular dynamics (MD) simulation trajectory results can be used to calculate the Lipari-Szabo S^2^ order parameters for a protein backbone and briefly go through the theory behind the calculation. This article is a continuation of the previous article on [**time aoutocorrelation function**](/_posts/2023-07-26-correlation-time-from-md.md) and mainly refers to the following sources:
+This article discusses how molecular dynamics (MD) simulation trajectory results can be used to calculate the Lipari-Szabo S^2^ order parameters for a protein backbone and briefly go through the theory behind the calculation. This article is a continuation of the previous article on [time autocorrelation function](/posts/2023-07-26-correlation-time-from-md.md) and mainly refers to the following sources:
 
 
 ## Spectral Density Function

@@ -65,6 +65,6 @@ In this particular example, the **RTIMes** option defines the atoms for which th
 
 
 ## Case Study: $S^2$ Order Parameters of the Protein Backbone
-The Python notebook example given in this [GitHub repository](https://github.com/raafik980/charmm-md-analysis-with-pycharmm.lingo/tree/main/nmr-order-parameter) shows how to calculate the Lipari-Szabo $S^2$ order parameters from an MD trajectory utilizing the pyCHARMM library and plot the data using Matplotlib. 
+The Python notebook (nmr.ipynb) example given in this [GitHub repository](https://github.com/raafik980/charmm-md-analysis-with-pycharmm.lingo/tree/main/nmr-order-parameter) shows how to calculate the Lipari-Szabo $S^2$ order parameters from an MD trajectory utilizing the pyCHARMM library and plot the data using Matplotlib. 
 
 The dynamics associated with each residue can be seen by plotting the $S^2$ order parameters as a function of residue number. In this particular case, a clear description of the lid dynamics can be obtained.

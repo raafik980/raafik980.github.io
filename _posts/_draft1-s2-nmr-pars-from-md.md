@@ -21,7 +21,11 @@ J(\omega) = \int_{0}^{\infty} C(t) cos(\omega t) dt
 $$
 
 
-
-## NMR Module in CHARMM
-
 The NMR module in CHARMM is a powerful tool for calculating NMR parameters from MD trajectories. For more information about the available commands, please refer to the [CHARMM NMR module documentation](https://academiccharmm.org/documentation/version/c47b2/nmr). 
+
+
+## NMR Analysis in pyCHARMM 
+
+Recently, Joshua Buckner, et al. from the Brooks group developed a Python interface to CHARMM, called [pyCHARMM](https://doi.org/10.1021/acs.jctc.3c00364). This allows users to run CHARMM functionality from Python scripts. Currently pyCHARMM is available along with the [CHARMM program](https://academiccharmm.org/program) installation, and can be easily imported into python scripts. The installation instructions can be found [here](https://github.com/BrooksResearchGroup-UM/MSLD-Workshop/tree/main/0Install_Tools).
+
+The example given in this [GitHub repository](

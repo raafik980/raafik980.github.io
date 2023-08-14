@@ -33,7 +33,7 @@ Recently, Joshua Buckner et al. from the Brooks group developed a Python interfa
 ```python
 
 
-#CHARMM STtream File Generation for NMR Module, Set options for NMR module
+#CHARMM Stream File Generation for NMR Module, Set options for NMR module
 
 nmr_stream = '''* NMR Order Parameter Calculation       !!Stream File Title, Syntax Requirement
 *                                                       !! Syntax Requirement

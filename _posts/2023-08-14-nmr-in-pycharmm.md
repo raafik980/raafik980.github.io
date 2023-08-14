@@ -1,5 +1,5 @@
 ---
-title: Lipari-Szabo S2 Order Parameters from Molecular Dynamics Simulation Trajectories
+title: Lipari-Szabo $S^2$ Order Parameters from Molecular Dynamics Simulation Trajectories
 author:
 date: 2023-08-14  
 categories: [Software, pyCHARMM]
@@ -10,7 +10,7 @@ toc: true
 math: true
 ---
 
-This article discusses how molecular dynamics (MD) simulation trajectory results can be used to calculate the Lipari-Szabo S^2^ order parameters for a protein backbone and briefly go through the theory behind the calculation. This article is a continuation of the previous article on the [time autocorrelation function](https://raafik980.github.io/posts/correlation-time-from-md/) and mainly refers to the following sources:
+This article discusses how molecular dynamics (MD) simulation trajectory results can be used to calculate the Lipari-Szabo $S^2$ order parameters for a protein backbone and briefly go through the theory behind the calculation. This article is a continuation of the previous article on the [time autocorrelation function](https://raafik980.github.io/posts/correlation-time-from-md/) and mainly refers to the following sources:
 
 
 ## Spectral Density Function

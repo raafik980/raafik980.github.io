@@ -10,7 +10,7 @@ toc: true
 math: true
 ---
 
-This article discusses how molecular dynamics (MD) simulation trajectory results can be used to calculate the Lipari-Szabo $S^2$ order parameters for a protein backbone and briefly go through the theory behind the calculation. This article is a continuation of the previous article on the [time autocorrelation function](https://raafik980.github.io/posts/correlation-time-from-md/) and mainly refers to the following sources:
+This article discusses how molecular dynamics (MD) simulation trajectory results can be used to calculate the Lipari-Szabo $S^2$ order parameters for a protein backbone and briefly goes through the theory behind the calculation. The Python notebook associated with this article can be found in this [GitHub repository](https://github.com/raafik980/charmm-md-analysis-with-pycharmm.lingo/tree/main/nmr-order-parameter). Also, this article is a continuation of the previous article on the [time autocorrelation function](https://raafik980.github.io/posts/correlation-time-from-md/) and mainly refers to the following sources:
 
 - [CHARMM NMR module documentation](https://academiccharmm.org/documentation/version/c47b2/nmr)
 

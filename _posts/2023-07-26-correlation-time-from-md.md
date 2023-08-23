@@ -9,7 +9,8 @@ pin: false
 toc: true
 math: true
 ---
-*DISCLAIMER: The content in this article is for demonstration purposes only and may contain errors and technical inaccuracies.*
+
+> *DISCLAIMER: The content in this article is for demonstration purposes only and may contain errors and technical inaccuracies.*
 
 
 This article briefly discusses the theory behind calculating correlation time and error from molecular dynamics (MD) simulation trajectories. This article mainly refers to the following sources:

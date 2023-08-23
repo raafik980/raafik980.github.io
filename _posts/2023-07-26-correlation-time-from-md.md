@@ -9,6 +9,8 @@ pin: false
 toc: true
 math: true
 ---
+*DISCLAIMER: The content in this article is for demonstration purposes only and may contain errors and technical inaccuracies.*
+
 
 This article briefly discusses the theory behind calculating correlation time and error from molecular dynamics (MD) simulation trajectories. This article mainly refers to the following sources:
 1. [Principles of Modern Molecular Simulation Methods Course](https://sites.engineering.ucsb.edu/~shell/che210d/) materials from Professor M. Scott Shell at UC Santa Barbara

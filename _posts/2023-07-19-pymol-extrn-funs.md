@@ -8,6 +8,7 @@ render_with_liquid: true
 pin: false
 toc: true
 ---
+*DISCLAIMER: The content in this article is for demonstration purposes only and may contain errors and technical inaccuracies*
 
 This post is about how to do some quick analyses directly from pre-rendered CHARMM molecular dynamics trajectories in PyMOL using custom external Python functions and PyMOL selection algebra. For more extended information about PyMOL's capabilities, [pymolwiki.org](https://pymolwiki.org/index.php/Launching_From_a_Script) is a great resource.
 

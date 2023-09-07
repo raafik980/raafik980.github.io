@@ -20,9 +20,7 @@ timezone:
 
 title: " Raafik's Page " # the main title
 
-tagline: " 
-“Thermodynamics is a funny subject. The first time you go through it, you don't understand it at all. The second time you go through it, you think you understand it, except for one or two points. The third time you go through it, you know you don't understand it, but by that time you are used to the bewilderment....”
- ―――――Arnold Sommerfeld "  # it will display as the sub-title
+tagline: " The only way to find out what will happen when a complex system is disturbed is to disturb the system, not merely to observe it passively ――――― Fred Mosteller and John Tukey "  # it will display as the sub-title
 
 description: >- # used by seo meta and the atom feed
    Computational Chemistry, Machine Learning, Multi-scale Modeling, Molecular Dynamics, CHARMM GUI

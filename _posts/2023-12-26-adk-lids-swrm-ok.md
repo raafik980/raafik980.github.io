@@ -52,6 +52,6 @@ An upcoming update to this article will provide detailed insights into the appli
 <br>
 <br>
 
-![OK City](/assets/2023-12-26/OKC.jpg)
+![OK City](/assets/2023-12-26/OKC.jpg) 
 *Oklahoma City Museum of Art, Oklahoma City, OK, USA*
 

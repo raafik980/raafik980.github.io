@@ -1,7 +1,7 @@
 ---
 title: "Dynamic Perspectives on Catalytic Function in Adenylate Kinase"
 author:
-date: 2023-11-16  
+date: 2023-12-26  
 categories: [Presentation, ACS-SWRM-2023]
 tags: [protein dynamics, gaussian mixed model, kinases]
 render_with_liquid: true

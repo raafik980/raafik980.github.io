@@ -1,5 +1,8 @@
 ---
 title: "Dynamic Perspectives on Catalytic Function in Adenylate Kinase"
+image:
+    path: "/assets/2023-12-26/OKC.jpg"
+    alt: "Oklahoma City Museum of Art, Oklahoma City, OK, USA"
 author:
 date: 2023-12-26  
 categories: [Presentation, ACS-SWRM-2023]
@@ -8,19 +11,17 @@ render_with_liquid: true
 pin: false
 toc: true
 math: true
----
-![OK City](/assets/2023-12-26/OKC.jpg) 
-*Oklahoma City Museum of Art, Oklahoma City, OK, USA*
 
-This article aims to provide a concise overview of my presentation at the [ACS-SWRM-2023](https://swrm.org/) conference, organized by the [American Chemical Society](https://www.acs.org/content/acs/en.html) SWRM Board in 2023, held in Oklahoma City, OK, USA.
+---
+<br>
 
 > ***DISCLAIMER**: The content in this article is for demonstration purposes only and may contain errors and technical inaccuracies.* 
 
 > ***Upcoming Update**: In a future update to this article, we will delve into the application of GMM for studying the correlation between conformational transitions and catalysis. This exploration will utilize Python libraries like **scikit-learn**, **PyMOL**, and **MDAnalysis**.* 
 
 <br>
-<br>
 
+This article aims to provide a concise overview of my presentation at the [ACS-SWRM-2023](https://swrm.org/) conference, organized by the [American Chemical Society](https://www.acs.org/content/acs/en.html) SWRM Board in 2023, held in Oklahoma City, OK, USA.
 
 The presentation was based on the study which is an extension of the following studies from [Nam group](https://scholar.google.com/citations?user=fUPBlikAAAAJ&hl=en):
 
@@ -33,7 +34,7 @@ The presentation was based on the study which is an extension of the following s
 
 ## Catalytic Mechanism of Adenylate Kinase 
 
-Adenylate kinase (Adk) is a ubiquitous enzyme that catalyses the interconversion between ATP+AMP+Mg^2+^ and 2ADP+Mg^2+^. The catalytic mechanisk which include conformational changes and ligand binding events is shown in the following figure:
+Adenylate kinase (Adk) is a ubiquitous enzyme that catalyses the interconversion between ATP+AMP+Mg<sup>2+</sup> and 2ADP+Mg<sup>2+</sup>. The catalytic mechanisk which include conformational changes and ligand binding events is shown in the following figure:
 
 ![Adk catalytic mechanism](/assets/2023-12-26/adk-mechanism.png)
 *Schematic representation of Adk mechanism and different domains involved in conformational transitions*

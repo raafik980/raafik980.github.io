@@ -47,7 +47,7 @@ The application of a Gaussian-based model necessitates near-to-full coverage of 
 
 Establishing a direct connection between conformational transitions and catalysis is inherently challenging. However, we employed a sequential approach, utilizing Gaussian-based Kernel Density Estimation (KDE) clustering on a selected feature influencing catalytic effects. Subsequently, we applied GMM on the clustered data based on a different feature influencing conformational transitions. This approach offers valuable insights into the connection between conformational transitions and catalysis.
 
-An upcoming update to this article will provide detailed insights into the application of GMM for studying the connection between conformational transitions and catalysis. Python libraries such as **scikit-learn**, **PyMOL**, and **MDAnalysis**.
+An upcoming update to this article will provide detailed insights into the application of GMM for studying the connection between conformational transitions and catalysis utilizing Python libraries such as **scikit-learn**, **PyMOL**, and **MDAnalysis**.
 
 <br>
 <br>

@@ -18,11 +18,15 @@ math: true
 <br>
 
 This article aims to provide a concise overview of my presentation at the [ACS-SWRM-2023](https://swrm.org/) conference, organized by the [American Chemical Society](https://www.acs.org/content/acs/en.html) SWRM Board in 2023, held in Oklahoma City, OK, USA.
+
+<br>
 <br>
 
 *Oklahoma City Museum of Art, Oklahoma City, OK, USA*
 ![OK City](/assets/2023-12-26/OKC.jpg) 
 
+<br>
+<br>
 
 The presentation was based on the study which is an extension of the following studies from [Nam group](https://scholar.google.com/citations?user=fUPBlikAAAAJ&hl=en):
 

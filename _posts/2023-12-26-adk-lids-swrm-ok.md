@@ -28,7 +28,7 @@ The presentation was based on the study which is an extension of the following s
 - Ojeda-May, P.; Mushtaq, A. U. I.; Rogne, P.; Verma, A.; Ovchinnikov, V.; Grundström, C.; Dulko-Smith, B.; Sauer, U. H.; Wolf-Watz, M.; Nam, K. [Dynamic Connection between Enzymatic Catalysis and Collective Protein Motions](https://doi.org/10.1021/acs.biochem.1c00221). Biochemistry 2021, 60 (28), 2246–2258.
 
 
-## Catalytic Mechanism of Adenylate Kinase
+## Catalytic Mechanism of Adenylate Kinase 
 
 Adenylate kinase (Adk) is a ubiquitous enzyme that catalyses the interconversion between ATP+AMP+Mg^2+^ and 2ADP+Mg^2+^. The catalytic mechanisk which include conformational changes and ligand binding events is shown in the following figure:
 

@@ -35,7 +35,7 @@ Adenylate kinase (Adk) is a ubiquitous enzyme that catalyses the interconversion
 ![Adk catalytic mechanism](/assets/2023-12-26/adk-mechanism.png)
 *Schematic representation of Adk mechanism and different domains involved in conformational transitions*
 
-## Dual Role of Active Site Residues in Adk
+## Dual Role of Active Site Residues in Adk 
 
 The active site surrounding the ligand, depicted as yellow sticks in the figure above, comprises highly charged arginine residues that exhibit a high degree of conservation across ancestral species. The referenced articles provide comprehensive insights into the dual role of these arginine residues, detailing their involvement in both close-to-open conformational transitions and catalytic processes. An extension to this study, encompassing further details, is slated for publication in the near future.
 

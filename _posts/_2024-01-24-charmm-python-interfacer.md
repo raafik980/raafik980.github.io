@@ -14,4 +14,5 @@ math: true
 <br>
 <br>
 
-This article 
+This topic demonstrates an example of incorporating a Python package into CHARMM. The aim of calling the Python package is to perform set of tasks to perform during each frame generation within a QM/MM MD simulation, such as calculating energy and forces based on a pretrained machine learning potential (MLP).
+

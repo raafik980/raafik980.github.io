@@ -50,7 +50,7 @@ Additionally, I am a trained electrochemist, particularly interested in the area
     - Dynamic Perspectives on Catalytic Function in Adenylate Kinase: Decoding the Role of Mg^2+^ Ion with Molecular Dynamics Simulations. [*Manuscript submitted to Sci. Adv, 2024*]
 <br>
 - **Electrostatic Effects of the Electric Double Layer (EDL) at Electrode/Electrolyte Interfaces**
-  * *Collaboration*: [Dr. Musthafa Ottakam Thotiyil](http://sites.iiserpune.ac.in/~musthafa/eeeglabmentor.html)
+  * *Collaboration*: [Dr. Musthafa Ottakam Thotiyil](https://www.iiserpune.ac.in/research/department/chemistry/people/faculty/regular-faculty/muhammed-musthafa/304)
   * *Description*: In this project, we are exploring how modifications to the electrode surface might influence the electrostatic effects of the electric double layer (EDL) at electrode/electrolyte interfaces. This investigation could impact the flux of ions, electrocatalytic activity, and the overall performance of electrochemical devices through the modulation of electrode surface potential.
   * *Relevant Publications*: 
     - Directional Molecular Transport in Iron Redox Flow Batteries by Interfacial Electrostatic Forces. [*Manuscript accepted in  J. Colloid Interface Sci, 2024*]

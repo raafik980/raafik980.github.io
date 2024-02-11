@@ -37,22 +37,22 @@ Additionally, I am a trained electrochemist, particularly interested in the area
 ### Ongoing Projects
 
 - **Machine Learning Potentials for Free Energy Simulations of Enzymatic Reactions**
-  * *<u>Collaboration</u>:* [Dr. Xiaoliang Pan](https://panxl.net/)
-  * <u>*Description*</u>:  In the ongoing work, we undertake a comprehensive re-examination of the MLP architecture introduced by [Pan et al](https://pubs.acs.org/doi/10.1021/acs.jctc.1c00565) (for QM/MM free energy simulations) to rigorously evaluate the transferability of a pre-trained machine learning potential (MLP) and &Delta;MLP model along the space of enzyme mutations. Enzyme mutations studied range from a single-point substitution to a homologous enzyme from different species and even water.
-  * <u>*Relevant Publications*</u>:
+  * <u>Collaboration</u>: [Dr. Xiaoliang Pan](https://panxl.net/)
+  * <u>Description</u>: In the ongoing work, we undertake a comprehensive re-examination of the MLP architecture introduced by [Pan et al](https://pubs.acs.org/doi/10.1021/acs.jctc.1c00565) (for QM/MM free energy simulations) to rigorously evaluate the transferability of a pre-trained machine learning potential (MLP) and &Delta;MLP model along the space of enzyme mutations. Enzyme mutations studied range from a single-point substitution to a homologous enzyme from different species and even water.
+  * <u>Relevant Publications</u>:
     - Exploring the Transferability of Machine Learning Potentials for Free Energy Simulations of Enzymatic Reactions: A Case Study on Dihydrofolate Reductase Catalyzed Reaction. [*Manuscript in preparation, 2024*]
 <br>
 - **Dynamic Perspectives on Catalytic Function in Adenylate Kinase**
-  * <u>*Collaboration*</u>: [Dr. Magnus Wolf-Watz](https://www.umu.se/en/staff/magnus-wolf-watz/)
-  * <u>*Description*</u>: In our project, we aim to understand the catalytic mechanism of adenylate kinase using a combination of classical molecular dynamics and QM/MM simulations. Our particular interest lies in examining the role of protein dynamics in the enzyme's catalytic function. Additionally, we are exploring the evolutionary trajectory of adenylate kinase's thermoadaptation across different species with the aid of Alphafold2 predicted structures.
-  * <u>*Relevant Publications*</u>:
+  * <u>Collaboration</u>: [Dr. Magnus Wolf-Watz](https://www.umu.se/en/staff/magnus-wolf-watz/)
+  * <u>Description</u>: In our project, we aim to understand the catalytic mechanism of adenylate kinase using a combination of classical molecular dynamics and QM/MM simulations. Our particular interest lies in examining the role of protein dynamics in the enzyme's catalytic function. Additionally, we are exploring the evolutionary trajectory of adenylate kinase's thermoadaptation across different species with the aid of Alphafold2 predicted structures.
+  * <u>Relevant Publications</u>:
     - [Elucidating Dynamics of Adenylate Kinase from Enzyme Opening to Ligand Release.](https://pubs.acs.org/doi/10.1021/acs.jcim.3c01618) [*J. Chem. Inf. Model, 2024*]
     - Dynamic Perspectives on Catalytic Function in Adenylate Kinase: Decoding the Role of Mg^2+^ Ion with Molecular Dynamics Simulations. [*Manuscript submitted to Sci. Adv, 2024*]
 <br>
 - **Electrostatic Effects of the Electric Double Layer (EDL) at Electrode/Electrolyte Interfaces**
-  * <u>*Collaboration*</u>: [Dr. Musthafa Ottakam Thotiyil](https://www.iiserpune.ac.in/research/department/chemistry/people/faculty/regular-faculty/muhammed-musthafa/304)
-  * <u>*Description*</u>: In this project, we are exploring how modifications to the electrode surface might influence the electrostatic effects of the electric double layer (EDL) at electrode/electrolyte interfaces. This investigation could impact the flux of ions, electrocatalytic activity, and the overall performance of electrochemical devices through the modulation of electrode surface potential.
-  * <u>*Relevant Publications*</u>: 
+  * <u>Collaboration</u>: [Dr. Musthafa Ottakam Thotiyil](https://www.iiserpune.ac.in/research/department/chemistry/people/faculty/regular-faculty/muhammed-musthafa/304)
+  * <u>Description</u>: In this project, we are exploring how modifications to the electrode surface might influence the electrostatic effects of the electric double layer (EDL) at electrode/electrolyte interfaces. This investigation could impact the flux of ions, electrocatalytic activity, and the overall performance of electrochemical devices through the modulation of electrode surface potential.
+  * <u>Relevant Publications</u>: 
     - Directional Molecular Transport in Iron Redox Flow Batteries by Interfacial Electrostatic Forces. [*Manuscript accepted in  J. Colloid Interface Sci, 2024*]
 
 ### **Services**

@@ -3,21 +3,22 @@
 icon: fas fa-info-circle
 title: About me 
 order: 4
-date: 2023-07-19
+date: 2024-02-01
 ---
 
 ## **Abdul Raafik Arattu Thodika**
-*Computational Chemistry&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;Biophysics* 
+*Computational Chemistry&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;Biophysics&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;Machine Learning Potentials* 
 - - -
 
-I am currently a graduate student pursuing a Ph.D. in the [Department of Chemistry and Biochemistry](https://www.uta.edu/academics/schools-colleges/science/departments/chemistry) at the [University of Texas at Arlington](https://www.uta.edu/). Under the guidance of [Dr. Kwangho Nam](https://scholar.google.com/citations?user=fUPBlikAAAAJ&hl=en), my research focuses on computational chemistry. Specifically, I am dedicated to the development and application of multiscale quantum mechanical/molecular mechanical (QM/MM) methodologies. These methodologies are utilized to study thermodynamics & kinetics associated with chemical catalysis within complex enzyme environments. In addition to conventional sampling approaches, I have a keen interest in utilizing machine learning techniques to expedite the sampling of complex chemical systems with improved accuracy.
+As a graduate student pursuing a Ph.D. in the [Department of Chemistry and Biochemistry](https://www.uta.edu/academics/schools-colleges/science/departments/chemistry) at the [University of Texas at Arlington](https://www.uta.edu/), I am actively engaged in computational chemistry research under the mentorship of [Dr. Kwangho Nam](https://scholar.google.com/citations?user=fUPBlikAAAAJ&hl=en). My work focuses on developing and applying multiscale quantum mechanical/molecular mechanical (QM/MM) methodologies to investigate the thermodynamics and kinetics of chemical catalysis within enzyme environments. Alongside traditional sampling approaches, I'm exploring the integration of machine learning techniques to improve the efficiency of analyzing complex chemical systems.
 
-I am also a trained electrochemist with experience in working with fuel cells and rechargeable redox flow batteries.
+Additionally, I have experience as a trained electrochemist, particularly in the areas of fuel cells and rechargeable redox flow batteries. My current research in that direction involves studying the electrostatic effects of the electric double layer (EDL) at electrode/electrolyte interfaces, contributing to advancements in energy storage and electrochemical processes.
+
 
 ### Education
-- **Ph.D. in Physical Chemistry**, University of Texas at Arlington, 2021 - Present
+- **Ph.D. in Physical Chemistry**, University of Texas at Arlington, 2021 - Present, Advisor: [Dr. Kwangho Nam](https://scholar.google.com/citations?user=fUPBlikAAAAJ&hl=en)
 - **BS & MS in Chemistry**, Indian Institute of Science Education and Research(IISER Pune, India), 2015 - 2020
-  * (Thesis: [Outer Sphere Redox Chemistry for Rechargeable Flow Batteries](http://dr.iiserpune.ac.in:8080/xmlui/handle/123456789/4743), Advisor: [Dr. Muhammed Musthafa](https://www.iiserpune.ac.in/research/department/chemistry/people/faculty/regular-faculty/muhammed-musthafa/304))
+  * (Thesis: [Outer Sphere Redox Chemistry for Rechargeable Flow Batteries](http://dr.iiserpune.ac.in:8080/xmlui/handle/123456789/4743), Advisor: [Dr. Musthafa Ottakam Thotiyil](https://www.iiserpune.ac.in/research/department/chemistry/people/faculty/regular-faculty/muhammed-musthafa/304))
 
 ### Relevant Skills
 
@@ -30,13 +31,32 @@ I am also a trained electrochemist with experience in working with fuel cells an
 - **Graduate Research Assistant**, University of Texas at Arlington, 2021 - Present
 
 - **Student Researcher in Electrochemistry**, Indian Institute of Science Education and Research (Pune, India), 2017 - 2020
-  * My research focussed on understanding thermodynamics & kinetics associated with electrochemical redox reactions and developing novel energy storage/conversion devices. The projects were supervised by [Dr. Muhammed Musthafa](https://www.iiserpune.ac.in/research/department/chemistry/people/faculty/regular-faculty/muhammed-musthafa/304).
-    - - *Relevant Publications* 
-    *  [An atmospheric water electrolyzer for decentralized green hydrogen production](https://www.cell.com/cell-reports-physical-science/pdf/S2666-3864(21)00345-3.pdf), *Cell Reports Physical Science*, 2021, 2, 11
-    *  [Coulombic Force Gated Molecular Transport in Redox Flow Batteries](https://doi.org/10.1021/acs.jpclett.0c03584), *The Journal of Physical Chemistry Letters*, 2021, 12, 5
-    *  [Ambient condition alcohol reforming to hydrogen with electricity output](https://doi.org/10.1021/acssuschemeng.0c07547), *ACS Sustainable Chemistry & Engineering*, 2021, 9, 8
+  * My research focussed on understanding thermodynamics & kinetics associated with electrochemical redox reactions and developing novel energy storage/conversion devices. The projects were supervised by [Dr. Musthafa Ottakam Thotiyil](https://www.iiserpune.ac.in/research/department/chemistry/people/faculty/regular-faculty/muhammed-musthafa/304).
+
+
+### Ongoing Projects
+
+- **Machine Learning Potentials for Free Energy Simulations of Enzymatic Reactions**
+  * *Collaboration*: [Dr. Xiaoliang Pan](https://panxl.net/)
+  * *Description*:  In the ongoing work, we undertake a comprehensive re-examination of the MLP architecture introduced by [Pan et al](https://pubs.acs.org/doi/10.1021/acs.jctc.1c00565) (for QM/MM free energy simulations) to rigorously evaluate the transferability of a pre-trained machine learning potential (MLP) and &Delta;MLP model along the space of enzyme mutations. Enzyme mutations studied range from a single-point substitution to a homologous enzyme from different species and even water.
+  * *Relevant Publications*:
+    - Exploring the Transferability of Machine Learning Potentials for Free Energy Simulations of Enzymatic Reactions: A Case Study on Dihydrofolate Reductase Catalyzed Reaction. [*Manuscript in preparation, 2024*]
+<br>
+- **Dynamic Perspectives on Catalytic Function in Adenylate Kinase**
+  * *Collaboration*: [Dr. Magnus Wolf-Watz](https://www.umu.se/en/staff/magnus-wolf-watz/)
+  * *Description*: In our project, we aim to understand the catalytic mechanism of adenylate kinase using a combination of classical molecular dynamics and QM/MM simulations. Our particular interest lies in examining the role of protein dynamics in the enzyme's catalytic function. Additionally, we are exploring the evolutionary trajectory of adenylate kinase's thermoadaptation across different species with the aid of Alphafold2 predicted structures.
+  * *Relevant Publications*:
+    - [Elucidating Dynamics of Adenylate Kinase from Enzyme Opening to Ligand Release.](https://pubs.acs.org/doi/10.1021/acs.jcim.3c01618) [*J. Chem. Inf. Model, 2024*]
+    - Dynamic Perspectives on Catalytic Function in Adenylate Kinase: Decoding the Role of Mg^2+^ Ion with Molecular Dynamics Simulations. [*Manuscript submitted to Sci. Adv, 2024*]
+<br>
+- **Electrostatic Effects of the Electric Double Layer (EDL) at Electrode/Electrolyte Interfaces**
+  * *Collaboration*: [Dr. Musthafa Ottakam Thotiyil](http://sites.iiserpune.ac.in/~musthafa/eeeglabmentor.html)
+  * *Description*: In this project, we are exploring how modifications to the electrode surface might influence the electrostatic effects of the electric double layer (EDL) at electrode/electrolyte interfaces. This investigation could impact the flux of ions, electrocatalytic activity, and the overall performance of electrochemical devices through the modulation of electrode surface potential.
+  * *Relevant Publications*: 
+    - Directional Molecular Transport in Iron Redox Flow Batteries by Interfacial Electrostatic Forces. [*Manuscript accepted in  J. Colloid Interface Sci, 2024*]
 
 ### Services
+
 - **Conference Organizing Committee Member**: [2019 Indo UK Researchers Link International Workshop](https://www.chem.gla.ac.uk/Electrotech2019/)
 
 - - -
@@ -49,4 +69,4 @@ I am also a trained electrochemist with experience in working with fuel cells an
 <br>
 <br>
 <br>
-*Last updated: 19 July 2023*
+*Last updated: February 2024*

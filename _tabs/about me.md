@@ -37,7 +37,7 @@ Additionally, I am a trained electrochemist, particularly interested in the area
 ### Ongoing Projects
 
 - **Machine Learning Potentials for Free Energy Simulations of Enzymatic Reactions**
-  * <u>*Collaboration*</u>: [Dr. Xiaoliang Pan](https://panxl.net/)
+  * *<u>Collaboration</u>:* [Dr. Xiaoliang Pan](https://panxl.net/)
   * <u>*Description*</u>:  In the ongoing work, we undertake a comprehensive re-examination of the MLP architecture introduced by [Pan et al](https://pubs.acs.org/doi/10.1021/acs.jctc.1c00565) (for QM/MM free energy simulations) to rigorously evaluate the transferability of a pre-trained machine learning potential (MLP) and &Delta;MLP model along the space of enzyme mutations. Enzyme mutations studied range from a single-point substitution to a homologous enzyme from different species and even water.
   * <u>*Relevant Publications*</u>:
     - Exploring the Transferability of Machine Learning Potentials for Free Energy Simulations of Enzymatic Reactions: A Case Study on Dihydrofolate Reductase Catalyzed Reaction. [*Manuscript in preparation, 2024*]

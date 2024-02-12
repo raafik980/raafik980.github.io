@@ -49,9 +49,9 @@ Additionally, I am a trained electrochemist, particularly interested in the area
     - [Elucidating Dynamics of Adenylate Kinase from Enzyme Opening to Ligand Release.](https://pubs.acs.org/doi/10.1021/acs.jcim.3c01618) [*J. Chem. Inf. Model, 2024*]
     - Dynamic Perspectives on Catalytic Function in Adenylate Kinase: Decoding the Role of Magnesium Ion with Molecular Dynamics Simulations. [*Manuscript submitted to Sci. Adv, 2024*]
 <br>
-- **Electrostatic Effects of the Electric Double Layer (EDL) at Electrode/Electrolyte Interfaces**
+- **Electrostatic Effects of the Electrical Double Layer (EDL) at Electrode/Electrolyte Interfaces**
   * <u>Collaboration</u>: [Dr. Musthafa Ottakam Thotiyil](https://www.iiserpune.ac.in/research/department/chemistry/people/faculty/regular-faculty/muhammed-musthafa/304)
-  * <u>Description</u>: In this project, we are exploring how modifications to the electrode surface might influence the electrostatic effects of the electric double layer (EDL) at electrode/electrolyte interfaces. This investigation could impact the flux of ions, electrocatalytic activity, and the overall performance of electrochemical devices through the modulation of electrode surface potential.
+  * <u>Description</u>: In this project, we are exploring how modifications to the electrode surface might influence the electrostatic effects of the electrical double layer (EDL) at electrode/electrolyte interfaces. This investigation could impact the flux of ions, electrocatalytic activity, and the overall performance of electrochemical devices through the modulation of electrode surface potential.
   * <u>Relevant Publications</u>: 
     - [Directional Molecular Transport in Iron Redox Flow Batteries by Interfacial Electrostatic Forces.](https://doi.org/10.1016/j.jcis.2024.02.074) [*J. Colloid Interface Sci, 2024*]
 

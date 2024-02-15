@@ -20,7 +20,7 @@ CHARMM houses code **(<path_to_charmm>/source/gukint/gukini.F90)** to interface 
 This article demonstrates a quick way to modify the existing implementation to interface with a Python script that could use machine learning potentials to calculate QM/MM energies and forces.
 
 ## CHARMM Q-Chem Interface for QM/MM Simulations
-Interface to Q-Chem can be considered as one of the decently documented interfaces and provides several key options to control specifications of the QM/MM simulations. The interface is implemented in the file **gukini.F90**. The interface is called from the CHARMM script using the following command:
+Interface to Q-Chem can be considered as one of the decently documented interfaces and provides several key options to control specifications of the QM/MM simulations. The interface is implemented in the file **gukini.F90** (*--with-qchem* key is required to include this piece of code to be included during compilation). The interface is called from the CHARMM script using the following command:
 
 ```console
 !!CHARMM Script
@@ -30,3 +30,4 @@ QCHEm REMO SELE QMATOMS SHOW END
 
 !!CHARMM Script
 ```
+

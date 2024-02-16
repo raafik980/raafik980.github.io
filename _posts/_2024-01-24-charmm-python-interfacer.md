@@ -36,7 +36,6 @@ QCHEm REMO SELE QMATOMS SHOW END
 
 ```fortran
 !!source/ltm/gamess_ltm.F90
-
 module gamess_fcm
   use chm_kinds
   use dimens_fcm
@@ -62,9 +61,9 @@ end module gamess_fcm
 ```
 
 ## How to Extract Custom Information from CHARMM Topology (.PSF)
-In certain cases, the interface with Python may require the information from the CHARMM topology file (.psf) to calculate the QM/MM energies and forces which may not be readily available within the current gukin.F90 interface. SO it would be beneficial to have copy of the information from the .psf file to be used to pass information to the Python script. The following code snippet demonstrates how to extract the information from the CHARMM topology file (.psf) by introducing custom variables in the **psf_ltm.F90** file in the **(<path_to_charmm>/source/psfgen/psf_ltm.F90)**.
+In certain cases, the interface with Python may require the information from the CHARMM topology file (.psf) to calculate the QM/MM energies and forces which may not be readily available within the current gukin.F90 interface. So it would be beneficial to have copy of the information from the .psf file to be used to pass information to the Python script. The following code snippet demonstrates how to extract the information from the CHARMM topology file (.psf) by introducing custom variables in the **psf_ltm.F90** file in the **(<path_to_charmm>/source/psfgen/psf_ltm.F90)**.
 
-The code below demonstrates how to introduce a new variable to store a copy of the charge array from the .psf file. Various other information from PSF file (CHARMM topology) can be extracted in a similar way. 
+The code below demonstrates how to introduce a new variable to store a copy of the charge array from the .psf file. Various other information from PSF file (CHARMM topology) can be introduced similarly. (In the next section, we will see how to pass this saved array to the Python script.)
 
 ```fortran
 !!source/ltm/psf_ltm.F90
@@ -90,7 +89,7 @@ module psf
     ! rest of the code
     !
 
-    ! Allocate memory for the new variable 'cg_dum'
+    ! Allocate memory for the new array variable 'cg_dum'
     call chmalloc(file_name, routine_name, 'iacc  ', maxpad, intg=iacc)
     call chmalloc(file_name, routine_name, 'iac1  ', maxpad, intg=iac1)
     call chmalloc(file_name, routine_name, 'inb   ', maxnb, intg=inb)

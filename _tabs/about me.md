@@ -54,6 +54,9 @@ Additionally, I am a trained electrochemist, particularly interested in the area
   * <u>Description</u>: In this project, we are exploring how modifications to the electrode surface might influence the electrostatic effects of the electrical double layer (EDL) at electrode/electrolyte interfaces. This investigation could impact the flux of ions, electrocatalytic activity, and the overall performance of electrochemical devices through the modulation of electrode surface potential.
   * <u>Relevant Publications</u>: 
     - [Directional Molecular Transport in Iron Redox Flow Batteries by Interfacial Electrostatic Forces.](https://doi.org/10.1016/j.jcis.2024.02.074) [*J. Colloid Interface Sci, 2024*]
+<br>
+- **CHARMM-GUI QM/MM Interfacer Module**
+  * <u>Description</u>: QM/MM Interfacer Module (part of [CHARMM-GUI](https://www.charmm-gui.org/)) provides a GUI-based platform to set up QM/MM simulations in CHARMM and Amber. In this project, I assist in debugging, generating template scripts, and testing the module for various QM/MM MD simulations applied to enzyme systems.
 
 ### **Services**
 

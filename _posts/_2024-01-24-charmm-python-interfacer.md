@@ -35,7 +35,7 @@ QCHEm REMO SELE QMATOMS SHOW END
 * Add the new **QCHEm** option key to call in the CHARMM script to activate the interface with Python for QM/MM simulations (such as ML-assisted QM/MM simulations).The new option is added as **QCHARMM2PY** in the **gukini.F90** file in the **(<path_to_charmm>/source/gukint/gukini.F90)**.
 
 ```fortran
-!!psf_ltm.F90
+!!source/ltm/gamess_ltm.F90
 
 module gamess_fcm
   use chm_kinds
@@ -60,4 +60,10 @@ LOGICAL QMP2,QLMP2,QCCSD,QCIS,QRIMP2,QSOSMP2,QMOSMP2,QSCSMP2, &
 
 end module gamess_fcm
 ```
+
+## How to Extract Custom Information from CHARMM Topology (.PSF)
+In certain cases, the interface with Python may require the information from the CHARMM topology file (.psf) to calculate the QM/MM energies and forces which may not be readily available within the current gukin.F90 interface. SO it would be beneficial to have copy of the information from the .psf file to be used to pass information to the Python script. The following code snippet demonstrates how to extract the information from the CHARMM topology file (.psf) by introducing custom variables in the **psf_ltm.F90** file in the **(<path_to_charmm>/source/psfgen/psf_ltm.F90)**.
+
+```fortran
+!!source/ltm/psf_ltm.F90
 

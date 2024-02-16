@@ -57,7 +57,7 @@ Additionally, I am a trained electrochemist, particularly interested in the area
 <br>
 - **CHARMM-GUI QM/MM Interfacer Module**
   * <u>Description</u>: QM/MM Interfacer Module (part of [CHARMM-GUI](https://www.charmm-gui.org/)) provides a GUI-based platform to set up QM/MM simulations in CHARMM and Amber. In this project, I assist in debugging, generating template scripts, and testing the module for various QM/MM MD simulations applied to enzyme systems.
-
+  
 ### **Services**
 
 - **Conference Organizing Committee Member**: [2019 Indo UK Researchers Link International Workshop](https://www.chem.gla.ac.uk/Electrotech2019/)

@@ -17,7 +17,7 @@ math: true
 ## Interfaces to QM Programs in CHARMM
 
 CHARMM houses code **(<path_to_charmm>/source/gukint/gukini.F90)** to interface with several quantum mechanical (QM) programs, including Gaussian, GAMESS, and Q-Chem. These interfaces allow CHARMM to perform QM/MM simulations, where the QM region is treated with a high-level QM method, and the MM region is treated as point charge (electrostatic embedding). These implementations can leverage the CHARMM capabilities, such as applying restraints, selection algebra, link-atom implementation, umbrella sampling, and various analysis modules. Depending on the atomic selection choices mentioned in the CHARMM running script, the simulation can represent the atoms with all QM, all MM, or a hybrid of QM and MM.
-This article demonstrates a quick way to modify the existing implementation to interface with a Python script that could use machine learning potentials to calculate QM/MM energies and forces.
+This article demonstrates a quick way to modify the existing implementation to interface with a Python script that could use machine learning (ML) potentials to calculate QM/MM energies and forces.
 
 ## CHARMM Q-Chem Interface for QM/MM Simulations
 Interface to Q-Chem can be considered as one of the decently documented interfaces and provides several key options to control specifications of the QM/MM simulations. The interface is implemented in the file **gukini.F90** (*--with-qchem* key is required to include this piece of code to be included during compilation). The interface is called from the CHARMM script using the following command:
@@ -29,5 +29,35 @@ Interface to Q-Chem can be considered as one of the decently documented interfac
 QCHEm REMO SELE QMATOMS SHOW END
 
 !!CHARMM Script
+```
+
+## Add a New Option to Interface with Python in the Current Q-Chem Interface
+* Add the new **QCHEm** option key to call in the CHARMM script to activate the interface with Python for QM/MM simulations (such as ML-assisted QM/MM simulations).The new option is added as **QCHARMM2PY** in the **gukini.F90** file in the **(<path_to_charmm>/source/gukint/gukini.F90)**.
+
+```fortran
+!!psf_ltm.F90
+
+module gamess_fcm
+  use chm_kinds
+  use dimens_fcm
+  use quantm,only:qmused_quantum
+  implicit none
+
+!
+! rest of the code
+!
+
+! New Q-Chem Option CH2PY added with rest of options
+LOGICAL QMP2,QLMP2,QCCSD,QCIS,QRIMP2,QSOSMP2,QMOSMP2,QSCSMP2, &
+       QQCOORD,QRESTART,QSAVORB,QQCLJ,QMICRO,QFRSTMICIT,QRESET,  &
+       QQCHARG,QQCPARA,QREADHESS,QSAVEHESS,QINIQC,QNRAP,QPRNTINP, & 
+       QSAVEINP,QSAVEOUT,QPCM,QREADGRAD,QSAVEGRAD,QWRITEINP,QOPENMP, & 
+       QMIXED,QQCSCRATCH,QQCHEM,QQEWALD,QMESS,QQRESD,QQCONS,QQNOLKATMS, QCHARMM2PY ! added new option
+
+!
+! rest of the code
+!
+
+end module gamess_fcm
 ```
 

@@ -64,6 +64,53 @@ end module gamess_fcm
 ## How to Extract Custom Information from CHARMM Topology (.PSF)
 In certain cases, the interface with Python may require the information from the CHARMM topology file (.psf) to calculate the QM/MM energies and forces which may not be readily available within the current gukin.F90 interface. SO it would be beneficial to have copy of the information from the .psf file to be used to pass information to the Python script. The following code snippet demonstrates how to extract the information from the CHARMM topology file (.psf) by introducing custom variables in the **psf_ltm.F90** file in the **(<path_to_charmm>/source/psfgen/psf_ltm.F90)**.
 
+The code below demonstrates how to introduce a new variable to store a copy of the charge array from the .psf file. Various other information from PSF file (CHARMM topology) can be extracted in a similar way. 
+
 ```fortran
 !!source/ltm/psf_ltm.F90
+module psf
+  use chm_kinds
+  use dimens_fcm
 
+  !
+  ! rest of the code
+  !
+
+  ! New variable 'cg_dum' added to store charge array
+  real(chm_real), allocatable, dimension(:) :: CG, AMASS, RSCLF, ALPHADP, THOLEI, cg_dum ! added new variable to store charge array
+
+  !
+  ! rest of the code
+  !
+
+  subroutine allocate_psf_ltm()
+    use memory
+
+    !
+    ! rest of the code
+    !
+
+    ! Allocate memory for the new variable 'cg_dum'
+    call chmalloc(file_name, routine_name, 'iacc  ', maxpad, intg=iacc)
+    call chmalloc(file_name, routine_name, 'iac1  ', maxpad, intg=iac1)
+    call chmalloc(file_name, routine_name, 'inb   ', maxnb, intg=inb)
+    call chmalloc(file_name, routine_name, 'iblo  ', maxaim, intg=iblo)
+    call chmalloc(file_name, routine_name, 'cg    ', maxaim, crl=cg)
+    call chmalloc(file_name, routine_name, 'cg_dum', maxaim, crl=cg_dum) ! added a new line allocate memory for the new variable 'cg_dum'
+    call chmalloc(file_name, routine_name, 'amass ', maxaim, crl=amass)
+    call chmalloc(file_name, routine_name, 'rsclf ', maxaim, crl=rsclf)
+    call chmalloc(file_name, routine_name, 'alphadp', maxaim, crl=alphadp)
+    call chmalloc(file_name, routine_name, 'tholei', maxaim, crl=tholei)
+
+    !
+    ! rest of the code
+    !
+
+  end subroutine allocate_psf_ltm
+
+  !
+  ! rest of the code
+  !
+
+end module psf
+```

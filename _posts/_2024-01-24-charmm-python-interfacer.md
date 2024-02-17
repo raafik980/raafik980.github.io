@@ -301,7 +301,7 @@ SUBROUTINE QCHEM(E,DX,DY,DZ,CGX,AMASSX,IACX,NDD1,DD1,QSECD,IUPT,JUPT)
 
 END SUBROUTINE QCHEM
 ```
-3. <u>Passing the MM region coordinates and charges to the Python package.</u>
+3. <u>Passing the MM region coordinates and charges to the file opened for the Python package input.</u>
 For this purpose we are not going to modify the **gukini.F90** file. The current code will introduce a section to the file, as shown below, where the columns represent the x coordinate, y coordinate, z coordinate, and charge of the MM region atoms. 
 ```console
 $external_charges
@@ -309,4 +309,352 @@ $external_charges
 1.0  1.0  1.0  1.0
 $end
 ```
-4.
+4. Make a copy of the charge array (cg_dum) from the .psf file to be passed to the file opened for the Python package input.
+*(This because the QM/MM algorithm zero out the charges of the atoms in the QM region in the original array, so we need to make a copy of the charges from the .psf file to be passed to the Python package)*
+
+```fortran
+!!source/gukint/gukini.F90
+
+!
+! rest of the code
+!
+
+SUBROUTINE COPSEL(ISLCT,QQINP)
+
+!
+! rest of the code
+!
+
+999    CONTINUE
+       ENDIF
+       ENDDO
+
+
+    !!!!Start: Added Section for Q-Chem-CHARMM interfacing with Python !!!!
+
+    IF(QGMREM) THEN
+      DO I=1,NATOM
+        cg_dum(I)=CG(I)  ! Make a copy of the charge array to be passed to the Python package
+      ENDDO
+    ENDIF
+
+    !!!!End: Added Section for Q-Chem-CHARMM interfacing with Python !!!!
+
+
+!
+! rest of the code
+!
+
+END SUBROUTINE COPSEL
+
+```
+5. <u>Passing the QM region coordinates and charges to the file opened for the Python package input.</u>
+This will introduce a section to the file, as shown below, where the columns represent the x coordinate, y coordinate, z coordinate, and charge of the QM region atoms. 
+```console
+$molecule
+0.0  0.0  0.0  0.0 C
+1.0  1.0  1.0  1.0 H
+$end
+```
+The corresponding modifications in the **gukini.F90** file are as follows:
+```fortran
+!!source/gukint/gukini.F90
+
+!
+! rest of the code
+!
+
+SUBROUTINE QCHEM(E,DX,DY,DZ,CGX,AMASSX,IACX,NDD1,DD1,QSECD,IUPT,JUPT)
+
+!
+! rest of the code
+!
+
+!!!!Start: Added Section for Q-Chem-CHARMM interfacing with Python !!!!
+
+    IF(QCHARMMPY) THEN
+      WRITE(OMO,'(A)')'$molecule'
+      DO I=1, NATOM
+        IF((IGMSEL(I).EQ.1).OR.(IGMSEL(I).EQ.2))THEN
+          WRITE(OMO,'(3F20.10,A)')X(I),Y(I),Z(I),cg_dum(I), ELE
+        ENDIF
+      ENDDO
+      WRITE(OMO,'(A)')'$end'
+    ELSE
+
+!!!!End: Added Section for Q-Chem-CHARMM interfacing with Python !!!!
+
+
+    IF(STRFIN(LINE,'$molecule').GT.0)THEN
+      READ(IMO,'(A)',END=100)LINE
+      !WRITE(OMO,'(A)')LINE(1:ILEN)
+!     WRITE(*,*)'testing molecule - ',QRPMINP,LINE
+      IF(QRPMINP) THEN 
+        IF(SGROUP(1:M).EQ."1") THEN 
+          READ(70,'(A)',END=100)LINE
+        ENDIF 
+        IF(SGROUP(1:M).EQ."2") THEN 
+          READ(71,'(A)',END=100)LINE
+        ENDIF 
+        WRITE(OMO,'(A)')LINE(1:ILEN)
+      ELSE 
+        WRITE(OMO,'(A)')LINE(1:ILEN)
+      ENDIF 
+      !WRITE(*,'(A)')LINE(1:ILEN)
+      QMATOMS=0
+      IPT=MMATOMS
+      DO I=1, NATOM
+        IF((IGMSEL(I).EQ.1).OR.(IGMSEL(I).EQ.2))THEN
+          ELE='      '
+          LQINIGM=QINIGM
+          CALL FINDEL(ATCT(IACX(I)),AMASSX(I),I,ELE,T,LQINIGM)
+          IF(ELE(1:3).EQ.'QQH')ELE(1:6)=' H    '
+          IF(ELE(1:3).EQ.'qqh')ELE(1:6)=' H    '
+          IF (QQEWALD) THEN
+          numqcatmtyp=size(qcffatmtyp)
+!         write(*,*)'size = ',loc 
+!         qcffatmtyp(0)=4
+!         qcffatmtyp(1)=75
+!         qcffatmtyp(2)=79
+!         qcffatmtyp(3)=163
+            do j=1,nbond
+              qcbonds(j)=0
+              tmpqcb(j)=0
+            enddo 
+            do j=1,nbond
+              if(I .eq. IB(J)) then 
+                qcbonds(j)=JB(J)
+              elseif(I .eq. JB(J)) then
+                qcbonds(j)=IB(J)
+              else
+                qcbonds(j)=0
+              endif
+            enddo
+            l=0
+            do k=1,nbond
+              if(qcbonds(k).gt.0) then
+                l=l+1
+                tmpqcb(l)=qcbonds(k)
+                qcbonds(k)=0
+              endif
+            enddo
+            locloop1: do l=0,numqcatmtyp-1
+              loc=abs(qcffatmtyp(l)-IAC(I)) 
+              if(loc .eq. 0) then
+                loc=l
+                exit locloop1
+              endif 
+            enddo locloop1
+            if(ELE(2:2) .eq. 'H') then 
+              WRITE(OMO,'(A6,3F20.10,5I6)')ELE,X(I),Y(I),Z(I),-loc-1,tmpqcb(1),0,0,0
+            else 
+              WRITE(OMO,'(A6,3F20.10,5I6)')ELE,X(I),Y(I),Z(I),-loc-1,tmpqcb(1),tmpqcb(2),tmpqcb(3),tmpqcb(4)
+            endif 
+
+
+!!!!Start: Added Section for Q-Chem-CHARMM interfacing with Python !!!!
+
+          ELSE IF (QCHARMMPY) THEN
+            WRITE(OMO,'(3F20.10,F16.8,A6)') X(I),Y(I),Z(I),cg_dum(I), ELE 
+            ! /* RAAFIK 2023 */
+          ELSE
+            WRITE(OMO,'(A6,3F20.10)')ELE,X(I),Y(I),Z(I)
+          ENDIF
+
+!!!!End: Added Section for Q-Chem-CHARMM interfacing with Python !!!!
+
+
+          IPT=IPT+1
+          MAPQM(IPT)=I
+          QMATOMS=QMATOMS+1
+        ELSE
+          IF(IGMSEL(I).EQ.0 .OR. IGMSEL(I).EQ.5)THEN
+            IF (QQEWALD) THEN
+              ELE='      '
+              LQINIGM=QINIGM
+              CALL FINDEL(ATCT(IACX(I)),AMASSX(I),I,ELE,T,LQINIGM)
+              numqcatmtyp=size(qcffatmtyp)
+              IF (QQEWALD) THEN
+                do j=1,nbond
+                  qcbonds(j)=0
+                  tmpqcb(j)=0
+                enddo
+                do j=1,nbond
+                  if(I .eq. IB(J)) then
+                    qcbonds(j)=JB(J)
+                    elseif(I .eq. JB(J)) then
+                    qcbonds(j)=IB(J)
+                  else
+                    qcbonds(j)=0
+                  endif
+                enddo
+                l=0
+                do k=1,nbond
+                  if(qcbonds(k).gt.0) then
+                    l=l+1
+                    tmpqcb(l)=qcbonds(k)
+                    qcbonds(k)=0
+                  endif
+                enddo
+              endif
+              locloop2: do l=0,numqcatmtyp-1
+                loc=abs(qcffatmtyp(l)-IAC(I)) 
+                if(loc .eq. 0) then
+                  loc=l
+                  exit locloop2
+                endif 
+              enddo locloop2
+              if(ELE(2:2) .eq. 'H') then 
+                WRITE(OMO,'(A6,3F20.10,5I6)')ELE,X(I),Y(I),Z(I),-loc-1,tmpqcb(1),0,0,0
+              else 
+                WRITE(OMO,'(A6,3F20.10,5I6)')ELE,X(I),Y(I),Z(I),-loc-1,tmpqcb(1),tmpqcb(2),tmpqcb(3),tmpqcb(4)
+              endif 
+            ENDIF
+            MAPMM(JPT)=I
+            JPT=JPT+1
+          ENDIF
+        ENDIF
+      ENDDO
+    QINIGM=.FALSE.
+    ENDIF
+    ENDIF
+
+ENDIF
+
+!
+! rest of the code
+!
+
+END SUBROUTINE QCHEM
+```
+6. <u>Set Environment Variables to Control Arguments to be Passed to Python.</u>
+This will introduce a section to the **gukini.F90** file to set the environment variables to control arguments to be passed to Python. The corresponding modifications in the **gukini.F90** file are as follows:
+```fortran
+!!source/gukint/gukini.F90
+
+
+6. <u>Call the Python package with system call in fortran90.</u>
+This will introduce a section to the **gukini.F90** file to call the Python package with the system call. The corresponding modifications in the **gukini.F90** file are as follows:
+```fortran
+!!source/gukint/gukini.F90
+
+!
+! rest of the code
+!
+
+SUBROUTINE QCHEM(E,DX,DY,DZ,CGX,AMASSX,IACX,NDD1,DD1,QSECD,IUPT,JUPT)
+
+!
+! rest of the code
+!
+
+          IF(QQCSCRATCH) THEN                ! QSCRATCH TEST 
+          IF(QNOGU) THEN
+             CALL SYSTEM('$QCHEMEXE '//NPOPT//' '//NP//FILIN(1:LI)//' ' &
+                  //FILOUT(1:LO)//' '//QCSCRATCH)
+          ELSE         
+             IF(QRESTART) THEN 
+                CALL SYSTEM('$QCHEMEXE '//NPOPT//' '//NP//FILIN(1:LI)//' ' &
+                     //FILOUT(1:LO)//' '//QCSCRATCH)
+                QRESTART=.FALSE.
+             ELSEIF (QSAVORB) THEN 
+                CALL SYSTEM('$QCHEMEXE '//NPOPT//' '//NP//FILIN(1:LI)//' ' &
+                     //FILOUT(1:LO)//' '//QCSCRATCH)
+                QSAVORB=.FALSE.
+             ELSE 
+                CALL SYSTEM('$QCHEMEXE '//NPOPT//' '//NP//FILIN(1:LI)//' ' &
+                     //FILOUT(1:LO))
+             ENDIF
+          ENDIF
+          ELSE                             ! QSCRATCH TEST 
+          IF(QNOGU) THEN
+             CALL SYSTEM('$QCHEMEXE '//NPOPT//' '//NP//FILIN(1:LI)//' ' &
+                  //FILOUT(1:LO)//' '//'SAVE')
+          ELSE         
+             IF(QRESTART) THEN 
+                CALL SYSTEM('$QCHEMEXE '//NPOPT//' '//NP//FILIN(1:LI)//' ' & 
+                     //FILOUT(1:LO)//' '//'SAVE')
+                QRESTART=.FALSE.
+             ELSEIF (QSAVORB) THEN 
+                CALL SYSTEM('$QCHEMEXE '//NPOPT//' '//NP//FILIN(1:LI)//' ' & 
+                     //FILOUT(1:LO)//' '//'SAVE')
+                QSAVORB=.FALSE.
+
+
+!!!!Start: Added Section for Q-Chem-CHARMM interfacing with Python !!!!
+
+                ELSEIF (QCCHARMMPY) THEN
+                  CALL SYSTEM('python -m $PY_PACKAGE --qm_charge $QM_CHARGE --qm_multiplicity $QM_MULTIPLICITY --inp_file $CHARMM2PY --out_file $PY2CHARMM_FILE')
+
+
+             ELSE 
+                CALL SYSTEM( &
+                     '$QCHEMEXE '//NPOPT//' '//NP//FILIN(1:LI)//' '//FILOUT(1:LO))
+             ENDIF
+
+!!!!End: Added Section for Q-Chem-CHARMM interfacing with Python !!!!
+
+
+          ENDIF
+          ENDIF                            ! QSCRATCH TEST 
+       ENDIF
+#elif KEY_PARALLEL==0
+       ! HLW - Dec. 2007
+       ! Fix the serial CHARMM version to work with QCPARA and allow 
+       ! parallel execution of Q-Chem
+       IF(QQCSCRATCH) THEN                ! QSCRATCH TEST 
+       IF(QNOGU) THEN
+          CALL SYSTEM('$QCHEMEXE '//FILIN(1:LI)//' '//FILOUT(1:LO)// &
+               ' '//QCSCRATCH)
+       ELSE
+          IF(QRESTART) THEN 
+             CALL SYSTEM('$QCHEMEXE '//FILIN(1:LI)//' '//FILOUT(1:LO)// &
+                  ' '//QCSCRATCH)
+             QRESTART=.FALSE.
+          ELSEIF (QSAVORB) THEN 
+             CALL SYSTEM('$QCHEMEXE '//FILIN(1:LI)//' '//FILOUT(1:LO)// &
+                  ' '//QCSCRATCH)
+             QSAVORB=.FALSE.
+          ELSE 
+             CALL SYSTEM('$QCHEMEXE '//FILIN(1:LI)//' '//FILOUT(1:LO))
+          ENDIF
+       ENDIF
+       ELSE                             ! QSCRATCH TEST 
+       IF(QNOGU) THEN
+          CALL SYSTEM('$QCHEMEXE '//FILIN(1:LI)//' '//FILOUT(1:LO)// & 
+               ' '//'SAVE')
+       ELSE
+          IF(QRESTART) THEN 
+             CALL SYSTEM('$QCHEMEXE '//FILIN(1:LI)//' '//FILOUT(1:LO)// &
+                  ' '//'SAVE')
+             QRESTART=.FALSE.
+          ELSEIF (QSAVORB) THEN 
+             CALL SYSTEM('$QCHEMEXE '//FILIN(1:LI)//' '//FILOUT(1:LO)// &
+                  ' '//'SAVE')
+             QSAVORB=.FALSE.
+
+
+!!!!Start: Added Section for Q-Chem-CHARMM interfacing with Python !!!!
+
+                ELSEIF (QCCHARMMPY) THEN
+                  CALL SYSTEM('python -m $PY_PACKAGE --qm_charge $QM_CHARGE --qm_multiplicity $QM_MULTIPLICITY --inp_file '//FILI(1:LI)//' --out_file '//FILOUT(1:LO))
+
+
+             ELSE 
+                CALL SYSTEM( &
+                     '$QCHEMEXE '//NPOPT//' '//NP//FILIN(1:LI)//' '//FILOUT(1:LO))
+             ENDIF
+
+!!!!End: Added Section for Q-Chem-CHARMM interfacing with Python !!!!
+
+
+       ENDIF
+       ENDIF                            ! QSCRATCH TEST 
+#endif 
+
+!
+! rest of the code
+!
+
+END SUBROUTINE QCHEM
+```

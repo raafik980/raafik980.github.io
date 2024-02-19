@@ -48,6 +48,11 @@ QCHEm REMO SELE QMATOMS SHOW END
 
 ```fortran
 !!source/ltm/gamess_ltm.F90
+
+  !
+  ! rest of the code
+  !
+  
 module gamess_fcm
   use chm_kinds
   use dimens_fcm
@@ -70,6 +75,10 @@ LOGICAL QMP2,QLMP2,QCCSD,QCIS,QRIMP2,QSOSMP2,QMOSMP2,QSCSMP2, &
 !
 
 end module gamess_fcm
+
+!
+! rest of the code
+!
 ```
 
 ## IV. How to Initiate Custon Arrays to Extract Information from CHARMM Topology (.PSF)
@@ -79,6 +88,11 @@ The code below demonstrates how to introduce a new array variable (later to stor
 
 ```fortran
 !!source/ltm/psf_ltm.F90
+
+  !
+  ! rest of the code
+  !
+
 module psf
   use chm_kinds
   use dimens_fcm
@@ -124,6 +138,10 @@ module psf
   !
 
 end module psf
+
+  !
+  ! rest of the code
+  !
 ```
 
 ## V. How Interface Passes Information to and from Python Package

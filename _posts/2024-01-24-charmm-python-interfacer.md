@@ -44,7 +44,7 @@ QCHEm REMO SELE QMATOMS SHOW END
 ```
 
 ## III. Add a New Option to Interface with Python in the Current Q-Chem Interface
-* Add the new **QCHEm** option key to call in the CHARMM script to activate the interface with Python for QM/MM simulations (such as ML-assisted QM/MM simulations).The new option is added as **QCHARMMPY** in the **gukini.F90** file in the **(<path_to_charmm>/source/gukint/gukini.F90)**.
+* Add the new **QCHEm** option key to call in the CHARMM script to activate the interface with Python for QM/MM simulations (such as ML-assisted QM/MM simulations).The new option is added as **CHPYthon** with a new variable **QCHARMMPY** in the **gukini.F90** file in the **(<path_to_charmm>/source/gukint/gukini.F90)**.
 
 ```fortran
 !!source/ltm/gamess_ltm.F90

@@ -1092,21 +1092,13 @@ DIMENS CHSIZE 5000000 MAXRES 3000000
 ! rest of the script
 !
 
-if @qmpackage .eq. mndo97 then
-   if ?mndo97 .eq. 1 then
-      mndo97 sele ( QMS .or. type QQH* ) end AM1 charge 1 remove
-   else
-      stop
-   endif
-endif
-
 
 !!!!Start: Added Section for Q-Chem-CHARMM interfacing with Python !!!!
 
 if @qmpackage .eq. python then
     if ?python .eq. 1 then
 
-        SET QCHEMCNT qchemcnt.inp         ! Name of the control file for total charge and multiplicity
+        set QCHEMCNT qchemcnt.inp         ! Name of the control file for total charge and multiplicity
         set PY_PACKAGE mlpotential        ! Name of the Python package
         set CHARMM2PYINP charmm2py.inp    ! Name of the input file for the Python package
         set PY2CHARMMOUT py2charmm.out    ! Name of the output file from the Python package

@@ -1082,8 +1082,9 @@ conda activate <conda_env_name>
 
 ```
 
-
 ## Conclusion
+This article demonstrates a quick and dirty way to introduce an interface to custom external programs such as Python packages from CHARMM. Although it is possible to introduce new modules to CHARMM without major restructuring of the program, being a single executable, it would be challenging for beginners to understand the CHARMM source code and make the necessary modifications. This article provides a step-by-step guide to introduce a new interface to CHARMM, which can be used as a starting point for more complex interfaces. This article also helps to understant certain subroutines in the CHARMM source code, which can be used as a reference for future modifications.
 
-This article serves as a quick and dirty way to introduce an interface to custom external programs such as Python packages from CHARMM. CHARMM being a 
+
+
 

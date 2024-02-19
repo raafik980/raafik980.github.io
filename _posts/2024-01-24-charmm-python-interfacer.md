@@ -195,7 +195,7 @@ SUBROUTINE GUKINI(COMLYN,COMLEN)
     ! rest of the code
     !
 
-    #if KEY_QCHEM==1
+#if KEY_QCHEM==1
     QRESET=(INDXA(COMLYN,COMLEN,'RESE').GT.0)
     IF(QRESET) THEN 
        IF(PRNLEV.GE.2) THEN 

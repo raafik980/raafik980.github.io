@@ -1085,10 +1085,12 @@ endif
 if @qmpackage .eq. python then
     if ?python .eq. 1 then
 
-        SET QCHEMCNT qchemcnt.inp ! Name of the control file for total charge and multiplicity
-        set PY_PACKAGE mlpotential ! Name of the Python package
-        set CHARMM2PYINP charmm2py.inp ! Name of the input file for the Python package
-        set PY2CHARMMOUT py2charmm.out ! Name of the output file from the Python package
+        SET QCHEMCNT qchemcnt.inp         ! Name of the control file for total charge and multiplicity
+        set PY_PACKAGE mlpotential        ! Name of the Python package
+        set CHARMM2PYINP charmm2py.inp    ! Name of the input file for the Python package
+        set PY2CHARMMOUT py2charmm.out    ! Name of the output file from the Python package
+
+        QCHEm CHPYthon REMO SELE ( QMS .or. type QQH* ) END
  
 energy
 

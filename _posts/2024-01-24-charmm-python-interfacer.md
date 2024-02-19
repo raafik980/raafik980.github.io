@@ -22,9 +22,7 @@ math: true
 1) We use the CHARMM MD simulation program which is available [here](https://academiccharmm.org/program)
 - Brooks, B. R.; Brooks, C. L., III; Mackerell, A. D., Jr; Nilsson, L.; Petrella, R. J.; Roux, B.; Won, Y.; Archontis, G.; Bartels, C.; Boresch, S.; Caflisch, A.; Caves, L.; Cui, Q.; Dinner, A. R.; Feig, M.; Fischer, S.; Gao, J.; Hodoscek, M.; Im, W.; Kuczera, K.; Lazaridis, T.; Ma, J.; Ovchinnikov, V.; Paci, E.; Pastor, R. W.; Post, C. B.; Pu, J. Z.; Schaefer, M.; Tidor, B.; Venable, R. M.; Woodcock, H. L.; Wu, X.; Yang, W.; York, D. M.; Karplus, M. [CHARMM: The Biomolecular Simulation Program.](https://doi.org/10.1002/jcc.21287) J. Comput. Chem. 2009, 30 (10), 1545–1614.
 
-<br>
-
-2) We use QM/MM Interfacer module to generate QM/MM simulation template scripts for our system of interest. The module is currently available with [CHARMM-GUI](https://www.charmm-gui.org/) platform.
+2. We use QM/MM Interfacer module to generate QM/MM simulation template scripts for our system of interest. The module is currently available with [CHARMM-GUI](https://www.charmm-gui.org/) platform.
 - *[Manuscript under preperation, 2024]*
 
 

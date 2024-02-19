@@ -25,12 +25,12 @@ math: true
 - *[Manuscript under preperation, 2024]*
 
 
-## Interfaces to QM Programs in CHARMM
+## I. Interfaces to QM Programs in CHARMM
 
 CHARMM houses code **(<path_to_charmm>/source/gukint/gukini.F90)** to interface with several quantum mechanical (QM) programs, including Gaussian, GAMESS, and Q-Chem. These interfaces allow CHARMM to perform QM/MM simulations, where the QM region is treated with a high-level QM method, and the MM region is treated as point charge (electrostatic embedding). These implementations can leverage the CHARMM capabilities, such as applying restraints, selection algebra, link-atom implementation, umbrella sampling, and various analysis modules. Depending on the atomic selection choices mentioned in the CHARMM running script, the simulation can represent the atoms with all QM, all MM, or a hybrid of QM and MM.
 This article demonstrates a quick way to modify the existing implementation to interface with a Python package that could use machine learning (ML) potentials to calculate QM/MM energies and forces.
 
-## CHARMM Q-Chem Interface for QM/MM Simulations
+## II. CHARMM Q-Chem Interface for QM/MM Simulations
 Interface to Q-Chem can be considered as one of the decently documented interfaces and provides several key options to control specifications of the QM/MM simulations. The interface is implemented in the file **gukini.F90** (*--with-qchem* key is required to include this piece of code to be included during compilation). The interface is called from the CHARMM script using the following command:
 
 ```console
@@ -42,7 +42,7 @@ QCHEm REMO SELE QMATOMS SHOW END
 !!CHARMM Script
 ```
 
-## Add a New Option to Interface with Python in the Current Q-Chem Interface
+## III. Add a New Option to Interface with Python in the Current Q-Chem Interface
 * Add the new **QCHEm** option key to call in the CHARMM script to activate the interface with Python for QM/MM simulations (such as ML-assisted QM/MM simulations).The new option is added as **QCHARMMPY** in the **gukini.F90** file in the **(<path_to_charmm>/source/gukint/gukini.F90)**.
 
 ```fortran
@@ -71,10 +71,10 @@ LOGICAL QMP2,QLMP2,QCCSD,QCIS,QRIMP2,QSOSMP2,QMOSMP2,QSCSMP2, &
 end module gamess_fcm
 ```
 
-## How to Initiate Custon Arrays to Extract Information from CHARMM Topology (.PSF)
+## IV. How to Initiate Custon Arrays to Extract Information from CHARMM Topology (.PSF)
 In certain cases, the interface with Python may require the information from the CHARMM topology file (.psf) to calculate the QM/MM energies and forces which may not be readily available within the current gukin.F90 interface. So it would be beneficial to have copy of the information from the .psf file to be used to pass information to the Python script. The following code snippet demonstrates how to initiate a custom array to extract the information from the CHARMM topology file (.psf) by introducing custom variables in the **psf_ltm.F90** file in the **(<path_to_charmm>/source/psfgen/psf_ltm.F90)**.
 
-The code below demonstrates how to introduce a new array variable (later to store a copy of the charge array from the .psf file to be passed to Python package).
+The code below demonstrates how to introduce a new array variable (later to store a copy of the charge array from the .psf file to be passed to the Python package).
 
 ```fortran
 !!source/ltm/psf_ltm.F90
@@ -125,25 +125,29 @@ module psf
 end module psf
 ```
 
-### How Interface Passes Information to and from Python Package
-1) <u>Consolidate the information required from CHARMM into a file (e.g., **charmm2py.inp**).</u>
+## V. How Interface Passes Information to and from Python Package
+
+#### 1. <u>Consolidate the information required from CHARMM into a file (e.g., **charmm2py.inp**).</u>
 This file will contain the information required to calculate/predict the QM/MM energies and forces using the Python script (like an ML potential). In this demonstration example, the following information is included in the **charmm2py.inp** file:
 
-    - Simulation box dimensions (for periodic boundary conditions, long-range electrostatics, equivariance transformations required for ML potentials, etc.)
-    - MM region atomic coordinates
-    - MM region atomic charges
-    - QM region atomic coordinates
-    - QM region atomic charges
-    - QM region atom types
+- Simulation box dimensions (for periodic boundary conditions, long-range electrostatics, equivariance transformations required for ML potentials, etc.)
+- MM region atomic coordinates
+- MM region atomic charges
+- QM region atomic coordinates
+- QM region atomic charges
+-  QM region atom types
 <br>
-2) <u>Define environment variables to be used in the CHARMM script to control arguments to be passed to Python.</u>
+
+#### 2. <u>Define environment variables to be used in the CHARMM script to control arguments to be passed to Python.</u>
+
 In this demonstration example, the following environment variables are added in the **gukini.F90** code, assuming our python package (PY_PACKAGE) CHARMM2PY_FILE, and PY2CHARMM_FILE:
 
-    - **PY_PACKAGE**: Path to the Python package (e.g., mlpotential) *[It will be convenient if the package is installed in a conda environment]*
-    - **CHARMM2PYINP**: Path to the input file for the Python package (e.g., charmm2py.inp)
-    - **PY2CHARMMOUT**: Path to the output file from the Python package (e.g., py2charmm.out)
+- **PY_PACKAGE**: Path to the Python package (e.g., mlpotential) *[It will be convenient if the package is installed in a conda environment]*
+- **CHARMM2PYINP**: Path to the input file for the Python package (e.g., charmm2py.inp)
+- **PY2CHARMMOUT**: Path to the output file from the Python package (e.g., py2charmm.out)
 <br>
-3) <u>The **QCHEMCNT** environment file to introduce total charge and multiplicity (also any general additional information) of the QM region.</u>
+
+#### 3. <u>The **QCHEMCNT** environment file to introduce total charge and multiplicity (also any general additional information) of the QM region.</u>
 The Qchem-CHARMM expects a control file associated with the QM region where we add the charge, multiplicity, and any additional specification associated with the calculation. This file is introduced in the CHARMM script via an environment variable **QCHEMCNT**. The file mentioned in the **QCHEMCNT** environment variable will contain the following information:
 
 ```console
@@ -157,7 +161,8 @@ $end
 ```
 It is possible to further streamline the workflow by introducing a new environment variable within the gukini.F90 code to control the arguments to be passed to the Python package. However, in this demonstration example, we are using the existing environment variables to control the arguments to be passed to the Python package.
 <br>
-4) <u>Call the Python package with **system** call in fortran90.</u>
+
+#### 4. <u>Call the Python package with **system** call in fortran90.</u>
 An example of the system call:
     
 ```bash
@@ -165,13 +170,14 @@ python -m $PY_PACKAGE --inp_file $CHARMM2PY --out_file $PY2CHARMM_FILE
 ```
 Instead of a plain text file, one can pass the information as binary, fifo, or any other suitable format considering performance and security. In this example, we are passing the information as a plain text file.
 <br>
-5) <u>Read the output from the Python package and update the QM/MM energies and forces in CHARMM.</u>
+
+#### 5. <u>Read the output from the Python package and update the QM/MM energies and forces in CHARMM.</u>
 In this demonstration example, the **py2charmm.out** file will contain the QM/MM energies and forces calculated/ML-predicted by the Python package. The **gukini.F90** code will read the **py2charmm.out** file and update the QM/MM energies and forces in CHARMM.
 
-## gukini.F90 Code Modification to Interface with Python
+## VI. gukini.F90 Code Modification to Interface with Python
 The following code snippets demonstrates how to modify the **gukini.F90** file to interface with a Python package (e.g., mlpotential) to calculate the QM/MM energies and forces. We will go section by section to understand the modifications.
 
-1) <u>Initialization of the new QCHARMMPY option along with other Q-Chem options in the **gukini.F90** file.</u>
+#### 1. <u>Initialization of the new QCHARMMPY option along with other Q-Chem options in the **gukini.F90** file.</u>
 
 ```fortran
 !!source/gukint/gukini.F90
@@ -272,7 +278,8 @@ END SUBROUTINE GUKINI
     ! rest of the code
     !
 ```
-2. <u>Pass the box dimensions to the fortran90 unit opened for the Python package input file.</u>
+
+#### 2. <u>Pass the box dimensions to the fortran90 unit opened for the Python package input file.</u>
 This will introduce a section for box dimensions in the file, like the example below, where the 10.0 represents the side of a cubic box.
 ```console
 $box
@@ -281,7 +288,9 @@ $box
 0.0  0.0  10.0
 $end
 ```
+
 Corresponding modifications in the **gukini.F90** file are as follows:
+
 ```fortran
 !!source/gukint/gukini.F90
 
@@ -327,15 +336,18 @@ END SUBROUTINE QCHEM
 ! rest of the code
 !
 ```
-3. <u>Passing the MM region coordinates and charges to the file opened for the Python package input.</u>
+
+#### 3. <u>Passing the MM region coordinates and charges to the file opened for the Python package input.</u>
+
 For this purpose we are not going to modify the **gukini.F90** file. The current code will introduce a section to the file, as shown below, where the columns represent the x coordinate, y coordinate, z coordinate, and charge of the MM region atoms. 
+
 ```console
 $external_charges
 0.0  0.0  0.0  0.0
 1.0  1.0  1.0  1.0
 $end
 ```
-4. Make a copy of the charge array (cg_dum) from the .psf file to be passed to the file opened for the Python package input.
+#### 4. <u>Make a copy of the charge array (cg_dum) from the .psf file to be passed to the file opened for the Python package input.</u>
 *(This because the QM/MM algorithm zero out the charges of the atoms in the QM region in the original array, so we need to make a copy of the charges from the .psf file to be passed to the Python package)*
 
 ```fortran
@@ -379,15 +391,20 @@ END SUBROUTINE COPSEL
 
 
 ```
-5. <u>Passing the QM region coordinates and charges to the file opened for the Python package input.</u>
+
+#### 5. <u>Passing the QM region coordinates and charges to the file opened for the Python package input.</u>
+
 This will introduce a section to the file, as shown below, where the columns represent the x coordinate, y coordinate, z coordinate, and charge of the QM region atoms. 
+
 ```console
 $molecule
 0.0  0.0  0.0  0.0 C
 1.0  1.0  1.0  1.0 H
 $end
 ```
+
 The corresponding modifications in the **gukini.F90** file are as follows:
+
 ```fortran
 !!source/gukint/gukini.F90
 
@@ -493,8 +510,10 @@ END SUBROUTINE QCHEM
 
 ```
 
-6. <u>Set Environment Variables to Control Arguments to be Passed to Python.</u>
+#### 6. <u>Set Environment Variables to Control Arguments to be Passed to Python.</u>
+
 This will introduce a section to the **gukini.F90** file to set the environment variables to control arguments to be passed to Python. The corresponding modifications in the **gukini.F90** file are as follows:
+
 ```fortran
 !!source/gukint/gukini.F90
 
@@ -625,8 +644,10 @@ END SUBROUTINE QCHEM
 !
 
 ```
-With this, we will have our finalized input file containing all information needed for the python program (for ML potential) to calculate the QM/MM energies and forces. The input file will be passed to the Python package using the system call in fortran90. The output file from the Python package will be read and the QM/MM energies and forces will be updated in CHARMM.
+
+With this, we will have our finalized input file containing all the information needed for the Python program (for ML potential) to calculate the QM/MM energies and forces. The input file will be passed to the Python package using the system call in fortran90. The output file from the Python package will be read, and the QM/MM energies and forces will be updated in CHARMM.
 A sample input file for the Python package (e.g., mlpotential) is as follows:
+
 ```console
 $box
 10.0  0.0  0.0
@@ -654,8 +675,10 @@ $ewald
 $end
 ```
 
-7. <u>Call the Python package with system call in fortran90.</u>
+#### 7. <u>Call the Python package with system call in fortran90.</u>
+
 This will introduce a section to the **gukini.F90** file to call the Python package with the system call. The corresponding modifications in the **gukini.F90** file are as follows:
+
 ```fortran
 !!source/gukint/gukini.F90
 
@@ -782,10 +805,13 @@ END SUBROUTINE QCHEM
 ! rest of the code
 !
 ```
+
 <br>
-8) <u>Read the output from the Python package and update the QM/MM energy in CHARMM.</u>
+
+#### 8. <u>Read the output from the Python package and update the QM/MM energy in CHARMM.</u>
 
 Here we assume the fist line of the output file from the Python package contains the QM/MM energy in hartrees. The corresponding modifications in the **gukini.F90** file are as follows:
+
 ```fortran
 !!source/gukint/gukini.F90
 
@@ -868,8 +894,10 @@ END SUBROUTINE QCHEM
 ! rest of the code
 !
 ```
+
 <br>
-9) <u>Read the output from the Python package and update the QM and MM atomic forces in CHARMM.</u>
+
+#### 9. <u>Read the output from the Python package and update the MM and QM atomic forces in CHARMM.</u>
 
 Here, we assume the next lines of the output file (the first line is energy) from the Python package contain rows of the atomic gradients in hartrees/bohr (dE/dx dE/dy dE/dz). The initial atomic gradients correspond to the MM region, and the following atomic gradients correspond to the QM region. The corresponding modifications in the **gukini.F90** file are as follows:
 
@@ -1004,10 +1032,11 @@ END SUBROUTINE QCHEM
 
 With these steps, we have  interfaced CHARMM0(--with-qchem) and Python. CHARMM generates a input file for the Python package, which calculates the QM/MM energies and forces. The output file from the Python package is read and the QM/MM energies and forces are updated in CHARMM.
 
-## How to run the interfaced CHARMM and Python package
+## VII. How to run the interfaced CHARMM and Python package
 
-1. <u>Compile CHARMM with the interfaced code.</u>
+#### 1. <u>Compile CHARMM with the interfaced code.</u>
 Download the CHARMM source code from the CHARMM website. Replace the **gukini.F90** file in the **source/gukint** directory with the modified **gukini.F90** file. Compile CHARMM with the following command:
+
 ```bash
 cd <path_to_charmm>
 mkdir charmm_mod_build
@@ -1018,13 +1047,14 @@ make install
 #Now the CHARMM executable with the interfaced code is in the charmm_mod_install/bin directory
 ```
 
-2. <U>Generate CHARMM script to run QM/MM simulations with QM/MM Interfacer in CHARMM-GUI</u>
+#### 2. <U>Generate CHARMM script to run QM/MM simulations with QM/MM Interfacer in CHARMM-GUI</u>
 
 QM/MM Interfacer in CHARMM-GUI provides a GUI based platform to generate CHARMM input files for QM/MM simulations. Including system preparation, reparametrization, QM  region selection, etc.
 
-3. <u>Modify the CHARMM script to introduce new options for interfacing with Python.</u>
+#### 3. <u>Modify the CHARMM script to introduce new options for interfacing with Python.</u>
 
 The CHARMM script generated by CHARMM-GUI can be modified to include new options for interfacing with Python. The following is an example of a CHARMM script to run the modified CHARMM with the interfaced code:
+
 ```console
 !!<path_to_charmm-gui-generated_directory/charmm/step5.production.inp
 !!
@@ -1068,8 +1098,11 @@ energy
 stop
 
 ```
-4. <u>Run the modified CHARMM script.</u>
+
+#### 4. <u>Run the modified CHARMM script.</u>
+
 A safe way will be to run the script in a conda environment with the required Python package and its dependencies. Edit the README file in the <path_to_charmm-gui-generated_directory/charmm> directory to include the following line at the beginning of the file:
+
 ```bash
 
 !/bin/bash
@@ -1083,7 +1116,8 @@ conda activate <conda_env_name>
 ```
 
 ## Conclusion
-This article demonstrates a quick and dirty way to introduce an interface to custom external programs such as Python packages from CHARMM. Although it is possible to introduce new modules to CHARMM without major restructuring of the program, being a single executable, it would be challenging for beginners to understand the CHARMM source code and make the necessary modifications. This article provides a step-by-step guide to introduce a new interface to CHARMM, which can be used as a starting point for more complex interfaces. This article also helps to understant certain subroutines in the CHARMM source code, which can be used as a reference for future modifications.
+
+This article demonstrates a quick and dirty way to introduce an interface to custom external programs such as Python packages from CHARMM. Although it is possible to introduce new modules to CHARMM without major restructuring of the program, being a single executable, it would be challenging for beginners to understand the CHARMM source code and make the necessary modifications. This article provides a step-by-step guide to introduce a new interface to CHARMM, which can be used as a starting point for more complex interfaces. This article also helps to understand certain subroutines in the CHARMM source code, which can be used as a reference for future modifications.
 
 
 

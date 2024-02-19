@@ -1,11 +1,11 @@
 ---
-title: "Dynamic Perspectives on Catalytic Function in Adenylate Kinase"
+title: "ACS-SWRM-2023: Dynamic Perspectives on Catalytic Function in Adenylate Kinase"
 image:
     path: "/assets/2023-12-26/OKC.jpg"
     alt: "Oklahoma City Museum of Art, Oklahoma City, OK, USA"
 author:
 date: 2023-12-26  
-categories: [Presentation, ACS-SWRM-2023]
+categories: [Presentations]
 tags: [protein dynamics, gaussian mixed model, kinases]
 render_with_liquid: true
 pin: false

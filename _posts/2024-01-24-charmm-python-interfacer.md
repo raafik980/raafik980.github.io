@@ -1094,7 +1094,10 @@ if @qmpackage .eq. python then
         set PY2CHARMMOUT py2charmm.out    ! Name of the output file from the Python package
 
         QCHEm CHPYthon REMO SELE ( QMS .or. type QQH* ) END
- 
+
+!!!!End: Added Section for Q-Chem-CHARMM interfacing with Python !!!!
+
+
 energy
 
 !

@@ -141,7 +141,7 @@ This file will contain the information required to calculate/predict the QM/MM e
 
 #### 2. <u>Define environment variables to be used in the CHARMM script to control arguments to be passed to Python.</u>
 
-In this demonstration example, the following environment variables are added in the **gukini.F90** code, assuming our python package (PY_PACKAGE) CHARMM2PY_FILE, and PY2CHARMM_FILE:
+In this demonstration example, the following environment variables are added in the **gukini.F90** code, assuming our python package (PY_PACKAGE) CHARMM2PYINP, and PY2CHARMMOUT:
 
 - **PY_PACKAGE**: Path to the Python package (e.g., mlpotential) *[It will be convenient if the package is installed in a conda environment]*
 - **CHARMM2PYINP**: Path to the input file for the Python package (e.g., charmm2py.inp)

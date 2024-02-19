@@ -117,7 +117,7 @@ end module psf
 
 ### How Interface Passes Information to and from Python Package
 1) <u>Consolidate the information required from CHARMM into a file (e.g., **charmm2py.inp**).</u>
- This file will contain the information required to calculate/predict the QM/MM energies and forces using the Python script (like an ML potential). In this demonstration example, the following information is included in the **charmm2py.inp** file:
+This file will contain the information required to calculate/predict the QM/MM energies and forces using the Python script (like an ML potential). In this demonstration example, the following information is included in the **charmm2py.inp** file:
 
     - Simulation box dimensions (for periodic boundary conditions, long-range electrostatics, equivariance transformations required for ML potentials, etc.)
     - MM region atomic coordinates
@@ -127,23 +127,34 @@ end module psf
     - QM region atom types
 <br>
 2) <u>Define environment variables to be used in the CHARMM script to control arguments to be passed to Python.</u>
- In this demonstration example, the following environment variables are added in the **gukini.F90** code, assuming our python package (PY_PACKAGE) takes the arguments QM_CHARGE, QM_MULTIPLICITY, CHARMM2PY_FILE, and PY2CHARMM_FILE:
+In this demonstration example, the following environment variables are added in the **gukini.F90** code, assuming our python package (PY_PACKAGE) CHARMM2PY_FILE, and PY2CHARMM_FILE:
 
     - **PY_PACKAGE**: Path to the Python package (e.g., mlpotential) *[It will be convenient if the package is installed in a conda environment]*
-    - **QM_CHARGE**: Total charge of the QM region
-    - **QM_MULTIPLICITY**: Multiplicity of the QM region
     - **CHARMM2PY_FILE**: Path to the input file for the Python package (e.g., charmm2py.inp)
     - **PY2CHARMM_FILE**: Path to the output file from the Python package (e.g., py2charmm.out)
 <br>
-3) <u>Call the Python package with **system** call in fortran90.</u>
+3) <u>The **QCHEMINI** environment file to introduce total charge and multiplicity (also any general additional information) of the QM region.</u>
+The Qchem-CHARMM expects a specification file associated with the QM region where we add the charge, multiplicity, and any additional specification associated with the calculation. This file is introduced in the CHARMM script via an environment variable **QCHEMINI**. The file mentioned in the **QCHEMINI** environment variable will contain the following information:
+
+```console
+$comment
+any comments or additional information.
+In the below $molecule section the first value is total charge of QM region and the second value is multiplicity of the QM region.
+$end
+$molecule
+1 1
+$end
+```
+
+4) <u>Call the Python package with **system** call in fortran90.</u>
 An example of the system call:
     
-    ```bash
-    python -m $PY_PACKAGE --qm_charge $QM_CHARGE --qm_multiplicity $QM_MULTIPLICITY --inp_file $CHARMM2PY --out_file $PY2CHARMM_FILE
-    ```
-    Instead of a plain text file, one can pass the information as binary, fifo, or any other suitable format considering performance and security. In this example, we are passing the information as a plain text file.
+```bash
+python -m $PY_PACKAGE --inp_file $CHARMM2PY --out_file $PY2CHARMM_FILE
+```
+Instead of a plain text file, one can pass the information as binary, fifo, or any other suitable format considering performance and security. In this example, we are passing the information as a plain text file.
 <br>
-4) <u>Read the output from the Python package and update the QM/MM energies and forces in CHARMM.</u>
+5) <u>Read the output from the Python package and update the QM/MM energies and forces in CHARMM.</u>
 In this demonstration example, the **py2charmm.out** file will contain the QM/MM energies and forces calculated/ML-predicted by the Python package. The **gukini.F90** code will read the **py2charmm.out** file and update the QM/MM energies and forces in CHARMM.
 
 ## gukini.F90 Code Modification to Interface with Python
@@ -300,6 +311,10 @@ SUBROUTINE QCHEM(E,DX,DY,DZ,CGX,AMASSX,IACX,NDD1,DD1,QSECD,IUPT,JUPT)
 !
 
 END SUBROUTINE QCHEM
+
+!
+! rest of the code
+!
 ```
 3. <u>Passing the MM region coordinates and charges to the file opened for the Python package input.</u>
 For this purpose we are not going to modify the **gukini.F90** file. The current code will introduce a section to the file, as shown below, where the columns represent the x coordinate, y coordinate, z coordinate, and charge of the MM region atoms. 
@@ -347,6 +362,11 @@ SUBROUTINE COPSEL(ISLCT,QQINP)
 
 END SUBROUTINE COPSEL
 
+!
+! rest of the code
+!
+
+
 ```
 5. <u>Passing the QM region coordinates and charges to the file opened for the Python package input.</u>
 This will introduce a section to the file, as shown below, where the columns represent the x coordinate, y coordinate, z coordinate, and charge of the QM region atoms. 
@@ -369,21 +389,6 @@ SUBROUTINE QCHEM(E,DX,DY,DZ,CGX,AMASSX,IACX,NDD1,DD1,QSECD,IUPT,JUPT)
 !
 ! rest of the code
 !
-
-!!!!Start: Added Section for Q-Chem-CHARMM interfacing with Python !!!!
-
-    IF(QCHARMMPY) THEN
-      WRITE(OMO,'(A)')'$molecule'
-      DO I=1, NATOM
-        IF((IGMSEL(I).EQ.1).OR.(IGMSEL(I).EQ.2))THEN
-          WRITE(OMO,'(3F20.10,A)')X(I),Y(I),Z(I),cg_dum(I), ELE
-        ENDIF
-      ENDDO
-      WRITE(OMO,'(A)')'$end'
-    ELSE
-
-!!!!End: Added Section for Q-Chem-CHARMM interfacing with Python !!!!
-
 
     IF(STRFIN(LINE,'$molecule').GT.0)THEN
       READ(IMO,'(A)',END=100)LINE
@@ -456,81 +461,156 @@ SUBROUTINE QCHEM(E,DX,DY,DZ,CGX,AMASSX,IACX,NDD1,DD1,QSECD,IUPT,JUPT)
 
           ELSE IF (QCHARMMPY) THEN
             WRITE(OMO,'(3F20.10,F16.8,A6)') X(I),Y(I),Z(I),cg_dum(I), ELE 
-            ! /* RAAFIK 2023 */
-          ELSE
-            WRITE(OMO,'(A6,3F20.10)')ELE,X(I),Y(I),Z(I)
-          ENDIF
 
 !!!!End: Added Section for Q-Chem-CHARMM interfacing with Python !!!!
 
 
-          IPT=IPT+1
-          MAPQM(IPT)=I
-          QMATOMS=QMATOMS+1
-        ELSE
-          IF(IGMSEL(I).EQ.0 .OR. IGMSEL(I).EQ.5)THEN
-            IF (QQEWALD) THEN
-              ELE='      '
-              LQINIGM=QINIGM
-              CALL FINDEL(ATCT(IACX(I)),AMASSX(I),I,ELE,T,LQINIGM)
-              numqcatmtyp=size(qcffatmtyp)
-              IF (QQEWALD) THEN
-                do j=1,nbond
-                  qcbonds(j)=0
-                  tmpqcb(j)=0
-                enddo
-                do j=1,nbond
-                  if(I .eq. IB(J)) then
-                    qcbonds(j)=JB(J)
-                    elseif(I .eq. JB(J)) then
-                    qcbonds(j)=IB(J)
-                  else
-                    qcbonds(j)=0
-                  endif
-                enddo
-                l=0
-                do k=1,nbond
-                  if(qcbonds(k).gt.0) then
-                    l=l+1
-                    tmpqcb(l)=qcbonds(k)
-                    qcbonds(k)=0
-                  endif
-                enddo
-              endif
-              locloop2: do l=0,numqcatmtyp-1
-                loc=abs(qcffatmtyp(l)-IAC(I)) 
-                if(loc .eq. 0) then
-                  loc=l
-                  exit locloop2
-                endif 
-              enddo locloop2
-              if(ELE(2:2) .eq. 'H') then 
-                WRITE(OMO,'(A6,3F20.10,5I6)')ELE,X(I),Y(I),Z(I),-loc-1,tmpqcb(1),0,0,0
-              else 
-                WRITE(OMO,'(A6,3F20.10,5I6)')ELE,X(I),Y(I),Z(I),-loc-1,tmpqcb(1),tmpqcb(2),tmpqcb(3),tmpqcb(4)
-              endif 
-            ENDIF
-            MAPMM(JPT)=I
-            JPT=JPT+1
+          ELSE
+            WRITE(OMO,'(A6,3F20.10)')ELE,X(I),Y(I),Z(I)
           ENDIF
-        ENDIF
-      ENDDO
-    QINIGM=.FALSE.
-    ENDIF
-    ENDIF
 
-ENDIF
 
 !
 ! rest of the code
 !
 
 END SUBROUTINE QCHEM
+
+!
+! rest of the code
+!
+
 ```
 6. <u>Set Environment Variables to Control Arguments to be Passed to Python.</u>
 This will introduce a section to the **gukini.F90** file to set the environment variables to control arguments to be passed to Python. The corresponding modifications in the **gukini.F90** file are as follows:
 ```fortran
 !!source/gukint/gukini.F90
+
+!
+! rest of the code
+!
+
+SUBROUTINE QCHEM(E,DX,DY,DZ,CGX,AMASSX,IACX,NDD1,DD1,QSECD,IUPT,JUPT)
+
+!
+! rest of the code
+!
+
+#if KEY_PERT == 1
+    IF(QPERT) THEN
+       IF (QMSTATE .EQ. 0) THEN
+          call get_environment_variable('SAINP', filcnt, lc)
+          IF(LC.EQ.0)CALL WRNDIE(-5,'<QCHEM>','No input specified.')
+       ELSE IF (QMSTATE .EQ. 1) THEN
+          CALL get_environment_variable('SBINP', FILCNT, LC)
+          IF(LC.EQ.0)CALL WRNDIE(-5,'<QCHEM>','No input specified.')
+       ENDIF
+    ELSE
+#endif /* KEY_PERT */
+       
+       CALL get_environment_variable("QCHEMCNT", FILCNT, LC)
+       IF(LC.EQ.0)CALL WRNDIE(-5,'<QCHEM>','No input specified.')
+
+#if KEY_PERT == 1
+    ENDIF
+
+    IF(QPERT) THEN
+       IF(QMSTATE .EQ. 0) THEN
+          CALL GET_ENVIRONMENT_VARIABLE("STATEAINP", FILIN, LI)
+          IF(LI.EQ.0)CALL WRNDIE(-5,'<QCHEM>','No input specified.')
+       ELSE IF(QMSTATE .EQ. 1) THEN
+          CALL GET_ENVIRONMENT_VARIABLE("STATEBINP", FILIN, LI)
+          IF(LI.EQ.0)CALL WRNDIE(-5,'<QCHEM>','No input specified.')
+       ENDIF
+    ELSE
+#endif /* KEY_PERT */
+
+       FILIN=''
+
+
+!!!!Start: Added Section for Q-Chem-CHARMM interfacing with Python !!!!
+
+IF(QCHARMMPY) THEN
+        CALL GET_ENVIRONMENT_VARIABLE("CHARMM2PY", FILIN, LI)
+        IF(LI.EQ.0)CALL WRNDIE(-5,'<QCHEM>','No input specified.')
+
+        ELSE
+
+       CALL GET_ENVIRONMENT_VARIABLE("QCHEMINP", FILIN, LI)
+       IF(LI.EQ.0)CALL WRNDIE(-5,'<QCHEM>','No input specified.')
+
+       ENDIF
+
+!!!!End: Added Section for Q-Chem-CHARMM interfacing with Python !!!!
+
+
+#if KEY_PERT == 1
+    ENDIF
+
+
+    IF (QPERT) THEN
+       IF (QMSTATE .EQ. 0) THEN
+          CALL GET_ENVIRONMENT_VARIABLE("STATEAOUT", FILOUT, LO)
+          IF(LO.EQ.0)CALL WRNDIE(-5,'<QCHEM>','No output specified.')
+       ELSE IF (QMSTATE .EQ. 1) THEN
+          CALL GET_ENVIRONMENT_VARIABLE("STATEBOUT", FILOUT, LO)
+          IF(LO.EQ.0)CALL WRNDIE(-5,'<QCHEM>','No output specified.')
+       ENDIF
+    ELSE
+#endif /* KEY_PERT */
+
+
+!!!!Start: Added Section for Q-Chem-CHARMM interfacing with Python !!!! 
+
+    IF(QCHARMMPY) THEN
+        CALL GET_ENVIRONMENT_VARIABLE("PY2CHARMM", FILOUT, LO)
+        IF(LO.EQ.0)CALL WRNDIE(-5,'<QCHEM>','No output specified.')
+
+        ELSE
+       
+       CALL GET_ENVIRONMENT_VARIABLE("QCHEMOUT", FILOUT, LO)
+       IF(LO.EQ.0)CALL WRNDIE(-5,'<QCHEM>','No output specified.')
+
+       ENDIF
+
+!!!!End: Added Section for Q-Chem-CHARMM interfacing with Python !!!!
+
+
+#if KEY_PERT == 1
+    ENDIF
+#endif
+
+
+!!!!Start: Added Section for Q-Chem-CHARMM interfacing with Python !!!!
+
+IF(QCHARMMPY) THEN
+    CALL GET_ENVIRONMENT_VARIABLE("PY_PACKAGE", FILEXE, LX)
+    IF(LX.EQ.0)CALL WRNDIE(-5,'<QCHEM>','No Python package specified.')
+
+    ELSE
+
+    CALL GET_ENVIRONMENT_VARIABLE("QCHEMEXE", FILEXE, LX)
+    IF(LX.EQ.0)CALL WRNDIE(-5,'<QCHEM>','No Q-chem specified.')
+
+    ENDIF
+
+!!!!End: Added Section for Q-Chem-CHARMM interfacing with Python !!!!
+
+
+    !
+
+    IMO=90  ! Input file (from outside program) reading fortran unit
+    OMO=91  ! Output file (from outside program) reading fortran unit
+
+!
+! rest of the code
+!
+
+END SUBROUTINE QCHEM
+
+!
+! rest of the code
+!
 
 ```
 

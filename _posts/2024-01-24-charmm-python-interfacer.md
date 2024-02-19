@@ -149,7 +149,8 @@ In this demonstration example, the following environment variables are added in 
 <br>
 
 #### 3. <u>The QCHEMCNT environment file to introduce total charge and multiplicity (also any general additional information) of the QM region.</u>
-The Qchem-CHARMM expects a control file associated with the QM region where we add the charge, multiplicity, and any additional specification associated with the calculation. This file is introduced in the CHARMM script via an environment variable **QCHEMCNT**. The file mentioned in the **QCHEMCNT** environment variable will contain the following information:
+
+The Qchem-CHARMM expects a control file associated with the QM region where we add the charge, multiplicity, and any additional specifications associated with the calculation. This file is introduced in the CHARMM script via an environment variable **QCHEMCNT**. The file mentioned in the **QCHEMCNT** environment variable will contain the following information:
 
 ```console
 $comment
@@ -160,15 +161,17 @@ $molecule
 1 1
 $end
 ```
-It is possible to further streamline the workflow by introducing a new environment variable within the gukini.F90 code to control the arguments to be passed to the Python package. However, in this demonstration example, we are using the existing environment variables to control the arguments to be passed to the Python package.
+
+It is possible to further streamline the workflow by introducing a new environment variable within the gukini.F90 code to control the arguments to be passed to the Python package. However, in this demonstration example, we are using the existing environment variable **QCHEMCNT** associated with a file (e.g., qchemcnt.inp) to control the arguments to be passed to the Python package.
 <br>
 
 #### 4. <u>Call the Python package with **system** call in fortran90.</u>
 An example of the system call:
-    
+
 ```bash
-python -m $PY_PACKAGE --inp_file $CHARMM2PY --out_file $PY2CHARMM_FILE
+python -m $PY_PACKAGE --inp_file $CHARMM2PYINP --out_file $PY2CHARMMOUT
 ```
+
 Instead of a plain text file, one can pass the information as binary, fifo, or any other suitable format considering performance and security. In this example, we are passing the information as a plain text file.
 <br>
 

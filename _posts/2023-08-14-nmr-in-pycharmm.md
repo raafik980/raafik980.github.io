@@ -2,7 +2,7 @@
 title: Lipari-Szabo $S^2$ Order Parameters from Molecular Dynamics Simulation Trajectories
 author:
 date: 2023-08-14  
-categories: [[Software, pyCHARMM]]
+categories: [Software, pyCHARMM]
 tags: [mdanalysis, charmm, molecular dynamics, nmr, pycharmm, python]
 render_with_liquid: true
 pin: false

@@ -21,7 +21,7 @@ math: true
 
 <br>
 
-This article aims to provide a concise overview of my presentation at the [ACS-SWRM-2023](https://swrm.org/) conference, organized by the [American Chemical Society](https://www.acs.org/content/acs/en.html) SWRM Board in 2023, held in Oklahoma City, OK, USA.
+This article aims to provide a concise overview of my presentation at the [ACS-SWRM-2023](https://swrm.org/) conference, organized by the [American Chemical Society](https://www.acs.org/content/acs/en.html) SWRM Board in November 2023, held in Oklahoma City, OK, USA.
 
 The presentation was based on the study which is an extension of the following studies from [Nam group](https://scholar.google.com/citations?user=fUPBlikAAAAJ&hl=en):
 

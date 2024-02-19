@@ -148,7 +148,7 @@ In this demonstration example, the following environment variables are added in 
 - **PY2CHARMMOUT**: Path to the output file from the Python package (e.g., py2charmm.out)
 <br>
 
-#### 3. <u>The **QCHEMCNT** environment file to introduce total charge and multiplicity (also any general additional information) of the QM region.</u>
+#### 3. <u>The QCHEMCNT environment file to introduce total charge and multiplicity (also any general additional information) of the QM region.</u>
 The Qchem-CHARMM expects a control file associated with the QM region where we add the charge, multiplicity, and any additional specification associated with the calculation. This file is introduced in the CHARMM script via an environment variable **QCHEMCNT**. The file mentioned in the **QCHEMCNT** environment variable will contain the following information:
 
 ```console

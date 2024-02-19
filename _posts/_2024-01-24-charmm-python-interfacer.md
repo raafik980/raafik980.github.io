@@ -532,8 +532,9 @@ This will introduce a section to the **gukini.F90** file to set the environment 
 ```fortran
 !!source/gukint/gukini.F90
 
+```
 
-6. <u>Call the Python package with system call in fortran90.</u>
+7. <u>Call the Python package with system call in fortran90.</u>
 This will introduce a section to the **gukini.F90** file to call the Python package with the system call. The corresponding modifications in the **gukini.F90** file are as follows:
 ```fortran
 !!source/gukint/gukini.F90

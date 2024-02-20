@@ -3,7 +3,7 @@ title: "Machine Learning Assisted QM/MM Free Energy Simulations: A Quick Way to 
 author:
 date: 2024-01-24  
 categories: [Software, CHARMM]
-tags: [machine learning potentials, deep learning, qm/mm simulations, python, fortran]
+tags: [machine learning, deep learning, qm/mm simulations, python, fortran]
 render_with_liquid: true
 pin: false
 toc: true

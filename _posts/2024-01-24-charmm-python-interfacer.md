@@ -44,7 +44,7 @@ QCHEm REMO SELE QMATOMS SHOW END
 ```
 
 ## III. Add a New Option to Interface with Python in the Current Q-Chem Interface
-* Add the new **QCHEm** option key to call in the CHARMM script to activate the interface with Python for QM/MM simulations (such as ML-assisted QM/MM simulations).The new option is added as **CHPYthon** with a new variable **QCHARMMPY** in the **gukini.F90** file in the **(<path_to_charmm>/source/ltm/gamess_ltm.F90)**.
+* Add the new **QCHEm** option key to call in the CHARMM script to activate the interface with Python for QM/MM simulations (such as ML-assisted QM/MM simulations).The new option is added as **CHPYthon** with a new variable **QCHARMMPY** in the **gamess_ltm.F90** file in the **(<path_to_charmm>/source/ltm/gamess_ltm.F90)**.
 
 ```fortran
 !!source/ltm/gamess_ltm.F90
@@ -81,8 +81,8 @@ end module gamess_fcm
 !
 ```
 
-## IV. How to Initiate Custon Arrays to Extract Information from CHARMM Topology (.PSF)
-In certain cases, the interface with Python may require the information from the CHARMM topology file (.psf) to calculate the QM/MM energies and forces which may not be readily available within the current gukin.F90 interface. So it would be beneficial to have copy of the information from the .psf file to be used to pass information to the Python script. The following code snippet demonstrates how to initiate a custom array to extract the information from the CHARMM topology file (.psf) by introducing custom variables in the **psf_ltm.F90** file in the **(<path_to_charmm>/source/psfgen/psf_ltm.F90)**.
+## IV. How to Initiate Custom Arrays to Extract Information from CHARMM Topology (.PSF)
+In certain cases, the interface with Python may require the information from the CHARMM topology file (.psf) to calculate the QM/MM energies and forces which may not be readily available within the current gukin.F90 interface. So it would be beneficial to have copy of the information from the .psf file to be used to pass information to the Python script. The following code snippet demonstrates how to initiate a custom array to extract the information from the CHARMM topology file (.psf) by introducing custom variables in the **psf_ltm.F90** file in the **(<path_to_charmm>/source/ltm/psf_ltm.F90)**.
 
 The code below demonstrates how to introduce a new array variable (later to store a copy of the charge array from the .psf file to be passed to the Python package).
 

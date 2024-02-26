@@ -11,4 +11,4 @@ toc: true
 
 I am a Chemistry graduate student at UT Arlington. This blog is meant to share articles, reading notes, and helpful coding snippets related to computational chemistry, biophysics, and allied topics.
 
-More on the ['About Me'](/about-me) section.
+More about me and my ongoing research can be found ['here'](/about-me) section.

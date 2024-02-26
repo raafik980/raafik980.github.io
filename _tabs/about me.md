@@ -47,7 +47,7 @@ Additionally, I am a trained electrochemist, particularly interested in the area
   * <u>Description</u>: In our project, we aim to understand the catalytic mechanism of adenylate kinase using a combination of classical molecular dynamics and QM/MM simulations. Our particular interest lies in examining the role of protein dynamics in the enzyme's catalytic function. Additionally, we are exploring the evolutionary trajectory of adenylate kinase's thermoadaptation across different species with the aid of Alphafold2 predicted structures.
   * <u>Relevant Publications</u>:
     - [Elucidating Dynamics of Adenylate Kinase from Enzyme Opening to Ligand Release.](https://pubs.acs.org/doi/10.1021/acs.jcim.3c01618) [*J. Chem. Inf. Model, 2024*]
-    - Dynamic Perspectives on Catalytic Function in Adenylate Kinase: Decoding the Role of Magnesium Ion with Molecular Dynamics Simulations. [*Manuscript submitted to Sci. Adv, 2024*]
+    - Dynamic Perspectives on Catalytic Function in Adenylate Kinase: Decoding the Role of Magnesium Ion with Molecular Dynamics Simulations. [*Manuscript in review, Sci. Adv, 2024*]
 <br>
 - **Electrostatic Effects of the Electrical Double Layer (EDL) at Electrode/Electrolyte Interfaces**
   * <u>Collaboration</u>: [Dr. Musthafa Ottakam Thotiyil](https://www.iiserpune.ac.in/research/department/chemistry/people/faculty/regular-faculty/muhammed-musthafa/304)

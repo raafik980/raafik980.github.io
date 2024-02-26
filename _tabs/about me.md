@@ -12,7 +12,7 @@ date: 2024-02-01
 
 As a graduate student pursuing a Ph.D. in the [Department of Chemistry and Biochemistry](https://www.uta.edu/academics/schools-colleges/science/departments/chemistry) at the [University of Texas at Arlington](https://www.uta.edu/), I am actively engaged in computational chemistry research under the mentorship of [Dr. Kwangho Nam](https://scholar.google.com/citations?user=fUPBlikAAAAJ&hl=en). My work focuses on developing and applying multiscale quantum mechanical/molecular mechanical (QM/MM) methodologies to investigate the thermodynamics and kinetics of chemical catalysis within enzyme environments. Alongside traditional sampling approaches, I'm exploring the integration of machine learning techniques to improve the efficiency of analyzing complex chemical systems.
 
-Additionally, I am a trained electrochemist, particularly interested in the areas of fuel cells and rechargeable redox flow batteries. My current research in this direction involves studying the electrostatic effects of the electric double layer (EDL) at electrode/electrolyte interfaces, contributing to advancements in energy storage and electrochemical processes.
+Additionally, I am a trained electrochemist, particularly interested in the areas of fuel cells and rechargeable redox flow batteries. My current research in this direction involves studying the electrostatic effects of the electrical double layer (EDL) at electrode/electrolyte interfaces, contributing to advancements in energy storage and electrochemical processes.
 
 
 ### Education

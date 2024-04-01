@@ -60,16 +60,12 @@ Additionally, I am a trained electrochemist, particularly interested in the area
   
 ### **Services**
 
-- **Conference Organizing Committee Member**: [2019 Indo UK Researchers Link International Workshop](https://www.chem.gla.ac.uk/Electrotech2019/)
+- **Conference Host**: [2019 Indo UK Researchers Link International Workshop](https://www.chem.gla.ac.uk/Electrotech2019/)
 
 - - -
 
 <br>
 <br>
 <br>
-> *In addition to academics, I take pleasure in digital illustrations and content design. This passion developed when I joined the design team for the 2018 student media body ['Kalpa'](https://kalpa.iiserpune.ac.in/) at IISER Pune. Since then, I have actively pursued this interest through personal projects and some commissioned collaborations.* 
 
-<br>
-<br>
-<br>
 *Last updated: February 2024*

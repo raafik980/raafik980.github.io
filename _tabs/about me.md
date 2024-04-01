@@ -60,7 +60,7 @@ Additionally, I am a trained electrochemist, particularly interested in the area
   
 ### **Services**
 
-- **Conference Host**: [2019 Indo UK Researchers Link International Workshop](https://www.chem.gla.ac.uk/Electrotech2019/)
+- **Conference Host**: [2019 Newton-Bhabha Fund Indo UK Researchers Link International Workshop](https://www.chem.gla.ac.uk/Electrotech2019/)
 
 - - -
 

@@ -30,7 +30,7 @@ Additionally, I am a trained electrochemist, particularly interested in the area
 
 - **Graduate Research Assistant**, University of Texas at Arlington, 2021 - Present
 
-- **Student Researcher in Electrochemistry**, Indian Institute of Science Education and Research (Pune, India), 2017 - 2020
+- **Undergraduate Research in Electrochemistry/Batteries**, Indian Institute of Science Education and Research (Pune, India), 2017 - 2020
   * My research focussed on understanding thermodynamics & kinetics associated with electrochemical redox reactions and developing novel energy storage/conversion devices. The projects were supervised by [Dr. Musthafa Ottakam Thotiyil](https://www.iiserpune.ac.in/research/department/chemistry/people/faculty/regular-faculty/muhammed-musthafa/304).
 
 

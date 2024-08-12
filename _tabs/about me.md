@@ -67,13 +67,13 @@ Additionally, I am a trained electrochemist, particularly interested in the area
 ### **Presentations**
 
 - **Posters**
-  * **<u>2022 Discover Symposium** (UT Arlington, Texas, US)</u>: *"Insights on Evolutionary Thermoadaptation of Adenylate Kinase: Ancestral Protein Structure Prediction with Deep Learning"*
-  * **<u>2023 Southwest Regional Meeting (SWRM) of The American Chemical Society** (Oklahoma City, Oklahoma, US)</u>: *"Dynamic Perspective on Catalytic Function in Adenylate Kinase: Decoding The Role of Magnesium Ion with Molecular Dynamics Simulations"*
-  * **<u>2024 Chemistry at Harvard Molecular Mechanics (CHARMM) Developers' Meeting** (UM Baltimore, Maryland, US)</u>: *"Machine Learning Potential (MLP)-assisted QM/MM Molecular Dynamics Simulations in CHARMM Program"*
-  * **<u>2024 Computational Chemistry Gordon Research Conference (GRC)**  (UMaine Portland, Maine, US)</u>: *"Exploring Transferability of Machine Learning Potentials for Free Energy Simulations of Enzymatic Reaction: A Case Study on Dihydrofolate Reductase Catalyzed Reaction"*
+  * **<u>2022 Discover Symposium (UT Arlington, Texas, US)</u>**: *"Insights on Evolutionary Thermoadaptation of Adenylate Kinase: Ancestral Protein Structure Prediction with Deep Learning"*
+  * **<u>2023 Southwest Regional Meeting (SWRM) of The American Chemical Society (Oklahoma City, Oklahoma, US)</u>**: *"Dynamic Perspective on Catalytic Function in Adenylate Kinase: Decoding The Role of Magnesium Ion with Molecular Dynamics Simulations"*
+  * **<u>2024 Chemistry at Harvard Molecular Mechanics (CHARMM) Developers' Meeting (UM Baltimore, Maryland, US)</u>**: *"Machine Learning Potential (MLP)-assisted QM/MM Molecular Dynamics Simulations in CHARMM Program"*
+  * **<u>2024 Computational Chemistry Gordon Research Conference (GRC) (UMaine Portland, Maine, US)</u>**: *"Exploring Transferability of Machine Learning Potentials for Free Energy Simulations of Enzymatic Reaction: A Case Study on Dihydrofolate Reductase Catalyzed Reaction"*
 
 - **Oral**
-  * **<u>2024 ACS Meeting in Miniature (MiM)** (UDallas, Texas, US)</u>: *"Machine Learning Potential Models for Free Energy Simulations of Enzyme Reactions"*
+  * **<u>2024 ACS Meeting in Miniature (MiM) (UDallas, Texas, US)</u>**: *"Machine Learning Potential Models for Free Energy Simulations of Enzyme Reactions"*
 
 ### **Services**
 

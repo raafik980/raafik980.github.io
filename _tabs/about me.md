@@ -42,21 +42,27 @@ Additionally, I am a trained electrochemist, particularly interested in the area
   * <u>Relevant Publications</u>:
     - Exploring the Transferability of Machine Learning Potentials for Free Energy Simulations of Enzymatic Reactions: A Case Study on Dihydrofolate Reductase Catalyzed Reaction. [*Manuscript in preparation, 2024*]
 <br>
+
 - **Dynamic Perspectives on Catalytic Function in Adenylate Kinase**
   * <u>Collaboration</u>: [Dr. Magnus Wolf-Watz](https://www.umu.se/en/staff/magnus-wolf-watz/)
   * <u>Description</u>: In our project, we aim to understand the catalytic mechanism of adenylate kinase using a combination of classical molecular dynamics and QM/MM simulations. Our particular interest lies in examining the role of protein dynamics in the enzyme's catalytic function. Additionally, we are exploring the evolutionary trajectory of adenylate kinase's thermoadaptation across different species with the aid of Alphafold2 predicted structures.
   * <u>Relevant Publications</u>:
-    - [Elucidating Dynamics of Adenylate Kinase from Enzyme Opening to Ligand Release.](https://pubs.acs.org/doi/10.1021/acs.jcim.3c01618) [*J. Chem. Inf. Model, 2024*]
-    - Dynamic Perspectives on Catalytic Function in Adenylate Kinase: Decoding the Role of Magnesium Ion with Molecular Dynamics Simulations. [*Manuscript in review, Sci. Adv, 2024*]
+    - [Elucidating Dynamics of Adenylate Kinase from Enzyme Opening to Ligand Release.](https://pubs.acs.org/doi/10.1021/acs.jcim.3c01618) [*J. Chem. Inf. Model., 2024*]
+    - [Magnesium induced structural reorganization in the active site of adenylate kinase.](https://www.science.org/doi/full/10.1126/sciadv.ado5504) [*Sci. Adv., 2024*]
 <br>
+
 - **Electrostatic Effects of the Electrical Double Layer (EDL) at Electrode/Electrolyte Interfaces**
   * <u>Collaboration</u>: [Dr. Musthafa Ottakam Thotiyil](https://www.iiserpune.ac.in/research/department/chemistry/people/faculty/regular-faculty/muhammed-musthafa/304)
   * <u>Description</u>: In this project, we are exploring how modifications to the electrode surface might influence the electrostatic effects of the electrical double layer (EDL) at electrode/electrolyte interfaces. This investigation could impact the flux of ions, electrocatalytic activity, and the overall performance of electrochemical devices through the modulation of electrode surface potential.
   * <u>Relevant Publications</u>: 
-    - [Directional Molecular Transport in Iron Redox Flow Batteries by Interfacial Electrostatic Forces.](https://doi.org/10.1016/j.jcis.2024.02.074) [*J. Colloid Interface Sci, 2024*]
+    - [Directional Molecular Transport in Iron Redox Flow Batteries by Interfacial Electrostatic Forces.](https://doi.org/10.1016/j.jcis.2024.02.074) [*J. Colloid Interface Sci., 2024*]
 <br>
+
 - **CHARMM-GUI QM/MM Interfacer Module**
+  * <u>Collaboration</u>:: [Dr. Donghyuk Suh](https://scholar.google.com/citations?user=VWknORkAAAAJ&hl=en) 
   * <u>Description</u>: QM/MM Interfacer Module (part of [CHARMM-GUI](https://www.charmm-gui.org/)) provides a GUI-based platform to set up QM/MM simulations in CHARMM and Amber. In this project, I assist in debugging, generating template scripts, and testing the module for various QM/MM MD simulations applied to enzyme systems.
+  * <u>Relevant Publications</u>: 
+    - [CHARMM-GUI QM/MM Interfacer for a Quantum Mechanical and Molecular Mechanical (QM/MM) Simulation Setup: 1. Semiempirical Methods](https://pubs.acs.org/doi/full/10.1021/acs.jctc.4c00439) [*J. Chem. Theory Comput., 2024*]
   
 ### **Presentations**
 

@@ -961,7 +961,7 @@ SUBROUTINE QCHEM(E,DX,DY,DZ,CGX,AMASSX,IACX,NDD1,DD1,QSECD,IUPT,JUPT)
 
 !!!!Start: Added Section for Q-Chem-CHARMM interfacing with Python !!!!
 
-    IF(QCHARMMMPY) THEN
+    IF(QCHARMMPY) THEN
       close(omo)
       open(omo,FILE=FILOUT(1:LO),status='unknown')
       read(omo, *)  ! Skip the first line, which contains the QM/MM energy

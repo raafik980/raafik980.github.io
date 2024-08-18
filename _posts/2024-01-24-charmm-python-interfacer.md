@@ -63,7 +63,7 @@ module gamess_fcm
 ! rest of the code
 !
 
-! New Q-Chem Option CH2PY added with rest of options
+! New Q-Chem Option QCHARMMPY added with rest of options
 LOGICAL QMP2,QLMP2,QCCSD,QCIS,QRIMP2,QSOSMP2,QMOSMP2,QSCSMP2, &
        QQCOORD,QRESTART,QSAVORB,QQCLJ,QMICRO,QFRSTMICIT,QRESET,  &
        QQCHARG,QQCPARA,QREADHESS,QSAVEHESS,QINIQC,QNRAP,QPRNTINP, & 

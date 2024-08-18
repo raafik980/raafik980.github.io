@@ -750,7 +750,7 @@ SUBROUTINE QCHEM(E,DX,DY,DZ,CGX,AMASSX,IACX,NDD1,DD1,QSECD,IUPT,JUPT)
 !!!!Start: Added Section for Q-Chem-CHARMM interfacing with Python !!!!
 
             ELSEIF (QCHARMMPY) THEN
-              CALL SYSTEM('python -m $PY_PACKAGE --inp_file '//FILI(1:LI)//' --out_file '//FILOUT(1:LO))
+              CALL SYSTEM('python -m $PY_PACKAGE --inp_file '//FILIN(1:LI)//' --out_file '//FILOUT(1:LO))
 
 
              ELSE 
@@ -803,7 +803,7 @@ SUBROUTINE QCHEM(E,DX,DY,DZ,CGX,AMASSX,IACX,NDD1,DD1,QSECD,IUPT,JUPT)
 !!!!Start: Added Section for Q-Chem-CHARMM interfacing with Python !!!!
 
                 ELSEIF (QCHARMMPY) THEN
-                  CALL SYSTEM('python -m $PY_PACKAGE --inp_file '//FILI(1:LI)//' --out_file '//FILOUT(1:LO))
+                  CALL SYSTEM('python -m $PY_PACKAGE --inp_file '//FILIN(1:LI)//' --out_file '//FILOUT(1:LO))
 
              ELSE 
                 CALL SYSTEM( &

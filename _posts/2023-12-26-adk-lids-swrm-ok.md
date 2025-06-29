@@ -17,7 +17,6 @@ math: true
 
 > ***DISCLAIMER**: The content in this article is for demonstration purposes only and may contain errors and technical inaccuracies.* 
 
-> ***Upcoming Update**: In a future update to this article, we will delve into the application of GMM for studying the correlation between conformational transitions and catalysis. This exploration will utilize Python libraries like **scikit-learn**, **PyMOL**, and **MDAnalysis**.* 
 
 <br>
 

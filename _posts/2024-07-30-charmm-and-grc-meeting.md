@@ -1,7 +1,7 @@
 ---
 title: "Poster Presentation at 2024 CHARMM Developers Meeting and Gordon Research Conference"
 image:
-    path: "/assets/2024-07-30/MA.png"
+    path: "/assets/2024-07-30/MA.jpg"
     alt: "Portland Head Light, Cape Elizabeth, ME, USA"
 author:
 date: 2024-07-30  
@@ -26,7 +26,7 @@ Machine learning potentials (MLPs) have shown success in predicting potential en
 
 <br>
 
-#### Pictures from the Meetings
+#### Pictures from the CHARMM and GRC meetings
 
 ![CHARMM Meeting](/assets/2024-07-30/CHARMM.jpg)
 ![Gordon Research Conference](/assets/2024-07-30/GRC.png)

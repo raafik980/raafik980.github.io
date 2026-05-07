@@ -10,6 +10,4 @@ pin: true
 toc: true
 ---
 
-I am a Chemistry graduate student at UT Arlington. This blog is meant to share articles, reading notes, and helpful coding snippets related to computational chemistry, biophysics, and allied topics.
-
-More about me and my ongoing research can be found [here](/about-me).
+I am a computation chemistry PhD graduate interested in biomolecular simulations, quantum chemistry and physics informed machine learning potentials. read more about me and my research [here](/about-me).

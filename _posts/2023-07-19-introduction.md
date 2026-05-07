@@ -10,4 +10,4 @@ pin: true
 toc: true
 ---
 
-I am a computation chemistry PhD graduate interested in biomolecular simulations, quantum chemistry and physics informed machine learning potentials. read more about me and my research [here](/about-me).
+I am a computational chemistry Ph. D. graduate interested in biomolecular simulations, quantum chemistry and physics informed neural network potentials. read more about me and my research [here](/about-me).

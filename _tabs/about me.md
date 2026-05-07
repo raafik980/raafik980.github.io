@@ -2,7 +2,7 @@
 # the default layout is 'page'
 icon: fas fa-info-circle
 title: About me 
-order: 4
+order: 1
 date: 2024-02-01
 ---
 

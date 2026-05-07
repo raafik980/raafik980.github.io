@@ -26,7 +26,7 @@ description: >- # used by seo meta and the atom feed
    Computational Chemistry, Machine Learning, Multi-scale Modeling, Molecular Dynamics, CHARMM GUI
 
 # fill in the protocol & hostname for your site, e.g., 'https://username.github.io'
-url: "https://raafik980.github.io/about-me"
+url: "https://raafik980.github.io"
 
 github:
   username: raafik980 # change to your github username

@@ -4,7 +4,7 @@ author:
 date: 2023-07-19 
 categories: [Introduction, About]
 tags: [introduction]
-render_with_liquid: false
+render_with_liquid: true
 pin: true
 toc: true
 ---

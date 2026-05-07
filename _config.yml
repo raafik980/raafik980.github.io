@@ -20,7 +20,7 @@ timezone:
 
 title: " Raafik's Page " # the main title
 
-tagline: " The only way to find out what will happen when a complex system is disturbed is to disturb the system, not merely to observe it passively ――――― Fred Mosteller and John Tukey "  # it will display as the sub-title
+tagline: " The only way to find out what will happen when a complex system is disturbed is to disturb the system, not merely to observe it passively ――――― George Box"  # it will display as the sub-title
 
 description: >- # used by seo meta and the atom feed
    Computational Chemistry, Machine Learning, Multi-scale Modeling, Molecular Dynamics, CHARMM GUI
@@ -30,9 +30,6 @@ url: "https://raafik980.github.io"
 
 github:
   username: raafik980 # change to your github username
-
-twitter:
-  username: abdul-raafik-a-t-03a35b197 # change to your twitter username
 
 social:
   # Change to your full name.

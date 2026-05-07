@@ -2,8 +2,9 @@
 title: About Me and This Page
 author:
 date: 2023-07-19 
-categories: [Introduction, About]
+categories: [Introduction]
 tags: [introduction]
+
 render_with_liquid: true
 pin: true
 toc: true

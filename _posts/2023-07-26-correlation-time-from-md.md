@@ -2,7 +2,7 @@
 title: "Statistics of Averages from Molecular Dynamics Trajectories: Time Auto-correlation Function"
 author:
 date: 2023-07-26 
-categories: [Reading Notes, Lectures]
+categories: [Reading Notes]
 tags: [mdanalysis, molecular dynamics, average properties, correlation time]
 render_with_liquid: true
 pin: false
